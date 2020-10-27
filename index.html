@@ -1,7 +1,7 @@
 
 <!-- saved from url=(0049)https://donglaiw.github.io/page/mitoEM/index.html -->
 <html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>MedMNIST Decathlon: A Light Benchmark for Automatic Medical Image Classification</title>
+<title>MEDMNIST CLASSIFICATION DECATHLON: A LIGHTWEIGHT AUTOML BENCHMARK FOR MEDICAL IMAGE ANALYSIS</title>
 
 <!-- Meta tags for search engines to crawl -->
 <meta name="robots" content="index,follow">
@@ -27,36 +27,138 @@
   <div id="content">
     <div id="content-inner">
       <div class="section head">
-	<h1>MedMNIST Decathlon: A Light Benchmark for Automatic Medical Image Classification</h1>
+	<h1>MedMNIST Classification Decathlon: A Lightweight AutoML Benchmark for Medical Image Analysis</h1>
     <br>
 	<div class="authors">
-	  <a href="https://jiancheng-yang.com/">Jiancheng Yang</a>&nbsp;
-    Rui Shi&nbsp;
-    Bingbing Ni&nbsp;
+	  <a href="https://jiancheng-yang.com/">Jiancheng Yang</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    Rui Shi&nbsp;&nbsp;&nbsp;&nbsp;
+    Bingbing Ni&nbsp;&nbsp;&nbsp;&nbsp;
 	</div>
 	<div class="affiliations">
-	  Shanghai Jiao Tong University&nbsp;&nbsp;&nbsp;&nbsp;  
+	  Shanghai Jiao Tong University, Shanghai, China &nbsp;&nbsp;&nbsp;&nbsp;  
 	</div>
       
       </div>
       <center>
-      <font size="4">
+      <font size="3">
 Code [<a href="https://github.com/MedMNIST/MedMNIST">Github</a>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-Dataset [<a href="">Zenodo</a>]
+Dataset [<a href="">Dropbox</a>]
       </font>
       </center>
-<br>    
-<br>    
-<br>    
+
       <center><img src="./MedMNIST/MedMNIST_Decathlon.png" border="0" width="80%"></center>
 
 <div class="section abstract">
 	<h2>Abstract</h2>
 	<br>
 	<p>	&nbsp;&nbsp;&nbsp;&nbsp;
-
+We present MedMNIST, a collection of 10 pre-processed medical open datasets. MedMNIST is standardized to perform classification tasks on lightweight 28 * 28 images, which requires no background knowledge. Covering the primary data modalities in medical image analysis, it is diverse on data scale (from 100 to 100,000) and tasks (binary/multi-class, ordinal regression and multi-label). MedMNIST could be used for educational purpose, rapid prototyping, multi-modal machine learning or AutoML in medical image analysis. Moreover, MedMNIST Classification Decathlon is designed to benchmark AutoML algorithms on all 10 datasets; We have compared several baseline methods, including open-source or commercial AutoML tools.
     </p>
       </div>
+
+      <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+</style>
+<table align="center", class="tg">
+  <Caption>An Overview of MedMNIST Dataset</Caption>
+<thead>
+  <tr>
+    <th class="tg-c3ow">Name</th>
+    <th class="tg-c3ow">Data Modality</th>
+    <th class="tg-c3ow">Tasks(# Classes/Labels)</th>
+    <th class="tg-c3ow"># Training</th>
+    <th class="tg-c3ow"># Validation</th>
+    <th class="tg-c3ow"># Test</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-c3ow">PathMNIST</td>
+    <td class="tg-c3ow">Pathology</td>
+    <td class="tg-c3ow">Multi-Class(9)</td>
+    <td class="tg-c3ow">89,996</td>
+    <td class="tg-c3ow">10,004</td>
+    <td class="tg-c3ow">7,180</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">ChestMNIST</td>
+    <td class="tg-c3ow">Chest X-ray</td>
+    <td class="tg-c3ow">Multi-Label(14) Binary-Class(2)</td>
+    <td class="tg-c3ow">78,468</td>
+    <td class="tg-c3ow">11,219</td>
+    <td class="tg-c3ow">22,433</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">DermaMNIST</td>
+    <td class="tg-c3ow">Dermatoscope</td>
+    <td class="tg-c3ow">Multi-Class(7)</td>
+    <td class="tg-c3ow">7,007</td>
+    <td class="tg-c3ow">1,003</td>
+    <td class="tg-c3ow">2,005</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">OCTMNIST</td>
+    <td class="tg-c3ow">OCT</td>
+    <td class="tg-c3ow">Multi-Class(4)</td>
+    <td class="tg-c3ow">97,477</td>
+    <td class="tg-c3ow">10,832</td>
+    <td class="tg-c3ow">1,000</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">PneumoniaMNIST</td>
+    <td class="tg-c3ow">Chest X-ray</td>
+    <td class="tg-c3ow">Binary-Class(2)</td>
+    <td class="tg-c3ow">4,708</td>
+    <td class="tg-c3ow">524</td>
+    <td class="tg-c3ow">624</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">RetinaMNIST</td>
+    <td class="tg-c3ow">Fundus Camera</td>
+    <td class="tg-c3ow">Ordinal Regression(5)</td>
+    <td class="tg-c3ow">1,080</td>
+    <td class="tg-c3ow">120</td>
+    <td class="tg-c3ow">400</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">BreastMNIST</td>
+    <td class="tg-c3ow">Breast Ultrasound</td>
+    <td class="tg-c3ow">Binary-Class(2)</td>
+    <td class="tg-c3ow">546</td>
+    <td class="tg-c3ow">78</td>
+    <td class="tg-c3ow">156</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">OrganMNIST_Axial</td>
+    <td class="tg-c3ow">Abdominal CT</td>
+    <td class="tg-c3ow">Multi-Class(11)</td>
+    <td class="tg-c3ow">34,581</td>
+    <td class="tg-c3ow">6,491</td>
+    <td class="tg-c3ow">17,778</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">OragnMNIST_Coronal</td>
+    <td class="tg-c3ow">Abdominal CT</td>
+    <td class="tg-c3ow">Multi-Class(11)</td>
+    <td class="tg-c3ow">13,000</td>
+    <td class="tg-c3ow">2,392</td>
+    <td class="tg-c3ow">8,268</td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">OrganMNIST_Sagittal</td>
+    <td class="tg-c3ow">Abdominal CT</td>
+    <td class="tg-c3ow">Multi-Class(11)</td>
+    <td class="tg-c3ow">13,940</td>
+    <td class="tg-c3ow">2,452</td>
+    <td class="tg-c3ow">8,829</td>
+  </tr>
+</tbody>
+</table>
 
 <br>
 <div class="section materials">
@@ -67,14 +169,93 @@ Dataset [<a href="">Zenodo</a>]
     </p>
 
 
+<br>
 <h2>Compliance with ethical standards</h2>
 <p>
-This research study was conducted retrospectively using human subject open-source data. Ethical approval was not required as confirmed by the license attached with the open-access data.
-
+This research study was conducted retrospectively using human subject open-source data. Ethical approval was not required as confirmed by the license attached with the open-access data. 
 
 </p>
 
 
+<br>
+<h2>Citation</h2>
+<pre class="highlight" word-wrap="break-word" white-space="normal">PathMNIST
+@article{pathmnist,
+    author = {Kather, Jakob Nikolas AND Krisam, Johannes AND Charoentong, Pornpimol AND Luedde, Tom AND Herpel, Esther AND Weis, Cleo-Aron AND Gaiser, Timo AND Marx, Alexander AND Valous, Nektarios A. AND Ferber, Dyke AND Jansen, Lina AND Reyes-Aldasoro, Constantino Carlos AND Zörnig, Inka AND Jäger, Dirk AND Brenner, Hermann AND Chang-Claude, Jenny AND Hoffmeister, Michael AND Halama, Niels},
+    journal = {PLOS Medicine},
+    publisher = {Public Library of Science},
+    title = {Predicting survival from colorectal cancer histology slides using deep learning: A retrospective multicenter study},
+    year = {2019},
+    month = {01},
+    volume = {16},
+    url = {https://doi.org/10.1371/journal.pmed.1002730},
+    pages = {1-22},
+    number = {1},
+    doi = {10.1371/journal.pmed.1002730}
+}
+
+ChestMNIST
+@InProceedings{chestmnist,
+    author = {Wang, Xiaosong and Peng, Yifan and Lu, Le and Lu, Zhiyong and Bagheri, Mohammadhadi and Summers, Ronald},
+    title = {ChestX-ray8: Hospital-scale Chest X-ray Database and Benchmarks on Weakly-Supervised Classification and Localization of Common Thorax Diseases},
+    booktitle = {CVPR},
+    year = {2017},
+    pages = {3462--3471}
+}
+
+DermaMNIST
+@article{dermamnist,
+    author = {Philipp Tschandl and Cliff Rosendahl and Harald Kittler},
+    journal = {CoRR},
+    title = {The {HAM10000} Dataset: {A} Large Collection of Multi-Source Dermatoscopic Images of Common Pigmented Skin Lesions},
+    year = {2018},
+    volume = {abs/1803.10417},
+    url = {http://arxiv.org/abs/1803.10417}
+}
+
+OCTMNIST,PneumoniaMNIST
+@article{octmnist,
+    author = "Daniel S. Kermany and Michael Goldbaum and Wenjia Cai and Carolina C.S. Valentim and Huiying Liang and Sally L. Baxter and Alex McKeown and Ge Yang and Xiaokang Wu and Fangbing Yan and Justin Dong and Made K. Prasadha and Jacqueline Pei and Magdalene Y.L. Ting and Jie Zhu and Christina Li and Sierra Hewett and Jason Dong and Ian Ziyar and Alexander Shi and Runze Zhang and Lianghong Zheng and Rui Hou and William Shi and Xin Fu and Yaou Duan and Viet A.N. Huu and Cindy Wen and Edward D. Zhang and Charlotte L. Zhang and Oulan Li and Xiaobo Wang and Michael A. Singer and Xiaodong Sun and Jie Xu and Ali Tafreshi and M. Anthony Lewis and Huimin Xia and Kang Zhang",
+    journal = "Cell",
+    title = "Identifying Medical Diagnoses and Treatable Diseases by Image-Based Deep Learning",
+    year = "2018",
+    volume = "172",
+    url = "http://www.sciencedirect.com/science/article/pii/S0092867418301545",
+    pages = "1122 - 1131.e9",
+    doi = "https://doi.org/10.1016/j.cell.2018.02.010",
+}
+
+RetinaMNIST
+@misc{retinamnist,
+    author = {DeepDR Diabetic Retinopathy Image Dataset (DeepDRiD)},
+    title = {The 2nd Diabetic Retinopathy – Grading and Image Quality Estimation Challenge}, 
+    year = {2020},
+    howpublished = {\url{https://isbi.deepdr.org/data.html}},
+    type = "Dataset"}
+
+BreastMNIST
+@article{breastmnist,
+    author = "Walid Al-Dhabyani and Mohammed Gomaa and Hussien Khaled and Aly Fahmy",
+    journal = "Data in Brief",
+    title = "Dataset of breast ultrasound images",
+    year = "2020",
+    volume = "28",
+    pages = "104863",
+    url = "http://www.sciencedirect.com/science/article/pii/S2352340919312181",
+    doi = "https://doi.org/10.1016/j.dib.2019.104863"
+}
+
+OrganMNIST_{Axial,Coronal,Sagittal}
+@article{organmnist,
+    author = {Patrick Bilic and Patrick Ferdinand Christ and Eugene Vorontsov and Grzegorz Chlebus and Hao Chen and Qi Dou and Chi{-}Wing Fu and Xiao Han and Pheng{-}Ann Heng and J{\"{u}}rgen Hesser and Samuel Kadoury and Tomasz K. Konopczynski and Miao Le and Chunming Li and Xiaomeng Li and Jana Lipkov{\'{a}} and John S. Lowengrub and Hans Meine and Jan Hendrik Moltz and Chris Pal and Marie Piraud and Xiaojuan Qi and Jin Qi and Markus Rempfler and Karsten Roth and   Andrea Schenk and Anjany Sekuboyina and Ping Zhou and Christian H{\"{u}}lsemeyer and Marcel Beetz and Florian Ettlinger and Felix Gr{\"{u}}n and Georgios Kaissis and Fabian Loh{\"{o}}fer and Rickmer Braren and Julian Holch and Felix Hofmann and Wieland H. Sommer and Volker Heinemann and Colin Jacobs and Gabriel Efrain Humpire Mamani and Bram van Ginneken and Gabriel Chartrand and An Tang and Michal Drozdzal and Avi Ben{-}Cohen and Eyal Klang and Michal Marianne Amitai and Eli Konen and Hayit Greenspan and Johan Moreau and Alexandre Hostettler and Luc Soler and Refael Vivanti and Adi Szeskin and Naama Lev{-}Cohain and Jacob Sosna and Leo Joskowicz and Bjoern H. Menze},
+    journal = {CoRR},
+    title = {The Liver Tumor Segmentation Benchmark (LiTS)},
+    year = {2019},
+    volume = {abs/1901.04056},
+    url = {http://arxiv.org/abs/1901.04056}
+}
+
+</pre>
 
 <h2>Acknowledgement</h2>
 <p>
