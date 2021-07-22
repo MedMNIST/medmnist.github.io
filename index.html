@@ -35,7 +35,7 @@
                         <li class="list-inline-item" v-for="(author,i) in about.authors">
                             <span v-if="author.href"><a v-bind:href="author.href"
                                     target="_blank">{{author.name}}</a></span><span v-else>{{author.name}}</span><span
-                                v-if="i<(about.authors.length-1)">,&nbsp;&nbsp;</span>
+                                v-if="i<(about.authors.length-1)">,</span>
                         </li>
                     </ul>
                 </h4>
@@ -51,8 +51,7 @@
                     <ul class="list-inline">
                         <li class="list-inline-item" v-for="(material,i) in about.materials">
                             <b>{{material.name}}</b>
-                            [<a v-bind:href="material.href" target="_blank">{{material.where}}</a>]<span
-                                v-if="i<(about.materials.length-1)">&nbsp;&nbsp;&nbsp;</span>
+                            [<a v-bind:href="material.href" target="_blank">{{material.where}}</a>]
                         </li>
                     </ul>
                 </h3>
