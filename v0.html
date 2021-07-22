@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>MedMNIST</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="MedMNIST, classification, decathlon, AutoML, medical image analysis">
+    <meta name="description" content="MedMNIST Project Page">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="assets/v1/project.css" media="screen">
+    <link href="assets/v1/favicon.ico" rel="icon" type="image/x-icon" />
+
+
+</head>
+
+<body>
+    <div id="content">
+        <div id="content-inner">
+            <div class="section head">
+                <h1>MedMNIST Classification Decathlon: A Lightweight AutoML Benchmark for Medical Image Analysis</h1>
+                <br>
+                <div class="authors">
+                    <a href="https://jiancheng-yang.com/" target="_blank">Jiancheng Yang</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                    Rui Shi &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="https://scholar.google.com/citations?user=eUbmKwYAAAAJ" target="_blank">Bingbing Ni</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="https://scholar.google.com/citations?user=2cX5y8kAAAAJ" target="_blank">Bilian Ke</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <div class="affiliations">
+                    Shanghai Jiao Tong University, Shanghai, China &nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+
+            </div>
+            <center>
+                <font size="3">
+                    Paper
+                    [<a href="https://arxiv.org/abs/2010.14925" target="_blank">ISBI'21</a>]
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Code
+                    [<a href="https://github.com/MedMNIST/MedMNIST" target="_blank">Github</a>]
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Dataset
+                    [<a href="https://doi.org/10.5281/zenodo.4269852" target="_blank">Zenodo</a>]
+                </font>
+            </center>
+
+            <center><img src="assets/v1/imgs/overview.jpg" border="0" width="80%"></center>
+
+            <div class="section" id="abstract">
+                <h2>Abstract</h2>
+                <p style="text-align:justify; text-justify:inter-ideograph">
+                    We present MedMNIST, a collection of 10 pre-processed medical open datasets. MedMNIST is
+                    standardized to perform classification tasks on lightweight 28 * 28 images, which requires no
+                    background knowledge. Covering the primary data modalities in medical image analysis, it is diverse
+                    on data scale (from 100 to 100,000) and tasks (binary/multi-class, ordinal regression and
+                    multi-label). MedMNIST could be used for educational purpose, rapid prototyping, multi-modal machine
+                    learning or AutoML in medical image analysis. Moreover, MedMNIST Classification Decathlon is
+                    designed to benchmark AutoML algorithms on all 10 datasets; We have compared several baseline
+                    methods, including open-source or commercial AutoML tools.
+                </p>
+            </div>
+
+            <div class="section" id="highlights">
+                <h2>Key Features</h2>
+                <ul>
+                    <li style="text-align:justify; text-justify:inter-ideograph">
+                        <b>Educational</b>: Our multi-modal data, from multiple open medical image datasets with
+                        Creative Commons (CC) Licenses, is easy to use for educational purpose.
+                    </li>
+                    <li style="text-align:justify; text-justify:inter-ideograph">
+                        <b>Standardized</b>: Data is pre-processed into same format, which requires no background
+                        knowledge for users.
+                    </li>
+                    <li style="text-align:justify; text-justify:inter-ideograph">
+                        <b>Diverse</b>: The multi-modal datasets covers diverse data scales (from 100 to 100,000) and
+                        tasks (binary/multiclass, ordinal regression and multi-label).
+                    </li>
+                    <li style="text-align:justify; text-justify:inter-ideograph">
+                        <b>Lightweight</b>: The small size of 28 × 28 is friendly for rapid prototyping and
+                        experimenting multi-modal machine learning and AutoML algorithms.
+                    </li>
+                    <p style="text-align:justify; text-justify:inter-ideograph">
+                        Please note that this dataset is <b>NOT</b> intended for clinical use.
+                    </p>
+                </ul>
+            </div>
+
+            <div class="section" id="dataset">
+                <h2>Download</h2>
+
+                <p style="text-align:justify; text-justify:inter-ideograph">
+                    Please download the dataset(s) via <b><a href="https://doi.org/10.5281/zenodo.4269852" target="_blank">Zenodo</a></b>. You could also use our <a href="https://github.com/MedMNIST/MedMNIST" target="_blank">code</a> to download automatically.
+                </p>
+
+            </div>
+
+            <div class="section" id="materials">
+                <h2>Materials</h2>
+
+                <table align="center" , class="tg">
+                    <Caption>An Overview of MedMNIST Dataset</Caption>
+                    <thead>
+                        <tr>
+                            <th class="tg-c3ow">Name</th>
+                            <th class="tg-c3ow">Data Modality</th>
+                            <th class="tg-c3ow">Tasks (# Classes/Labels)</th>
+                            <th class="tg-c3ow"># Training</th>
+                            <th class="tg-c3ow"># Validation</th>
+                            <th class="tg-c3ow"># Test</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="tg-c3ow">PathMNIST</td>
+                            <td class="tg-c3ow">Pathology</td>
+                            <td class="tg-c3ow">Multi-Class (9)</td>
+                            <td class="tg-c3ow">89,996</td>
+                            <td class="tg-c3ow">10,004</td>
+                            <td class="tg-c3ow">7,180</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-c3ow">ChestMNIST</td>
+                            <td class="tg-c3ow">Chest X-ray</td>
+                            <td class="tg-c3ow">Multi-Label (14) Binary-Class (2)</td>
+                            <td class="tg-c3ow">78,468</td>
+                            <td class="tg-c3ow">11,219</td>
+                            <td class="tg-c3ow">22,433</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-c3ow">DermaMNIST</td>
+                            <td class="tg-c3ow">Dermatoscope</td>
+                            <td class="tg-c3ow">Multi-Class (7)</td>
+                            <td class="tg-c3ow">7,007</td>
+                            <td class="tg-c3ow">1,003</td>
+                            <td class="tg-c3ow">2,005</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-c3ow">OCTMNIST</td>
+                            <td class="tg-c3ow">OCT</td>
+                            <td class="tg-c3ow">Multi-Class (4)</td>
+                            <td class="tg-c3ow">97,477</td>
+                            <td class="tg-c3ow">10,832</td>
+                            <td class="tg-c3ow">1,000</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-c3ow">PneumoniaMNIST</td>
+                            <td class="tg-c3ow">Chest X-ray</td>
+                            <td class="tg-c3ow">Binary-Class (2)</td>
+                            <td class="tg-c3ow">4,708</td>
+                            <td class="tg-c3ow">524</td>
+                            <td class="tg-c3ow">624</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-c3ow">RetinaMNIST</td>
+                            <td class="tg-c3ow">Fundus Camera</td>
+                            <td class="tg-c3ow">Ordinal Regression (5)</td>
+                            <td class="tg-c3ow">1,080</td>
+                            <td class="tg-c3ow">120</td>
+                            <td class="tg-c3ow">400</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-c3ow">BreastMNIST</td>
+                            <td class="tg-c3ow">Breast Ultrasound</td>
+                            <td class="tg-c3ow">Binary-Class (2)</td>
+                            <td class="tg-c3ow">546</td>
+                            <td class="tg-c3ow">78</td>
+                            <td class="tg-c3ow">156</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-c3ow">OrganMNIST_Axial</td>
+                            <td class="tg-c3ow">Abdominal CT</td>
+                            <td class="tg-c3ow">Multi-Class (11)</td>
+                            <td class="tg-c3ow">34,581</td>
+                            <td class="tg-c3ow">6,491</td>
+                            <td class="tg-c3ow">17,778</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-c3ow">OragnMNIST_Coronal</td>
+                            <td class="tg-c3ow">Abdominal CT</td>
+                            <td class="tg-c3ow">Multi-Class (11)</td>
+                            <td class="tg-c3ow">13,000</td>
+                            <td class="tg-c3ow">2,392</td>
+                            <td class="tg-c3ow">8,268</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-c3ow">OrganMNIST_Sagittal</td>
+                            <td class="tg-c3ow">Abdominal CT</td>
+                            <td class="tg-c3ow">Multi-Class (11)</td>
+                            <td class="tg-c3ow">13,940</td>
+                            <td class="tg-c3ow">2,452</td>
+                            <td class="tg-c3ow">8,829</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+            <div class="section" id="results">
+                <h2>Performance Analysis</h2>
+                <br>
+
+                <p>
+                    <center><img src="assets/v1/imgs/performancev2.jpg" border="0" width="100%"></center>
+                </p>
+            </div>
+
+
+            <div class="section" id="citation">
+                <h2>Citation and Licenses</h2>
+
+                <p style="text-align:justify; text-justify:inter-ideograph">
+                    If you find this project useful, please cite our ISBI'21 paper as:
+                    <br>
+                    <i>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        Jiancheng Yang, Rui Shi, Bingbing Ni. "MedMNIST Classification Decathlon: A Lightweight AutoML
+                        Benchmark for Medical Image Analysis," arXiv preprint arXiv:2010.14925, 2020.
+                    </i>
+                    <br><br>
+                    or using bibtex:
+                    <br>
+                    <i>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        @article{medmnist,<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        title={MedMNIST Classification Decathlon: A Lightweight AutoML Benchmark for Medical Image
+                        Analysis},<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        author={Yang, Jiancheng and Shi, Rui and Ni,
+                        Bingbing},<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        journal={arXiv preprint arXiv:2010.14925},<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        year={2020}<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        }
+                    </i>
+                    <br>
+                </p>
+
+                <p>
+                    Besides, please cite the corresponding paper if you use any subset of MedMNIST.
+                    Each subset uses the <b>same license</b> as that of the source dataset.
+                </p>
+
+                <h4>PathMNIST</h4>
+                <p style="text-align:justify; text-justify:inter-ideograph">
+                    Jakob Nikolas Kather, Johannes Krisam, et al., "Predicting survival from colorectal cancer histology
+                    slides using deep learning: A retrospective multicenter study," PLOS Medicine, vol. 16, no. 1, pp.
+                    1–22, 01 2019.
+                </p>
+                <i style="text-align:justify; text-justify:inter-ideograph">
+                    <b>License</b>: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>
+                </i>
+
+                <h4>ChestMNIST</h4>
+                <p style="text-align:justify; text-justify:inter-ideograph">
+                    Xiaosong Wang, Yifan Peng, et al., "Chestx-ray8: Hospital-scale chest x-ray database and benchmarks
+                    on weakly-supervised classification and localization of common thorax diseases," in CVPR, 2017, pp.
+                    3462–3471.
+                </p>
+                <i style="text-align:justify; text-justify:inter-ideograph">
+                    <b>License</b>: <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0 1.0</a>
+                </i>
+
+                <h4>DermaMNIST</h4>
+                <p style="text-align:justify; text-justify:inter-ideograph">
+                    Philipp Tschandl, Cliff Rosendahl, and Harald Kittler, "The ham10000 dataset, a large collection of
+                    multisource dermatoscopic images of common pigmented skin lesions," Scientific data, vol. 5, pp.
+                    180161, 2018.
+                </p>
+                <p style="text-align:justify; text-justify:inter-ideograph">
+                    Noel Codella, Veronica Rotemberg, Philipp Tschandl, M. Emre Celebi, Stephen Dusza, David Gutman, Brian Helba, Aadi Kalloo, Konstantinos Liopyris, Michael Marchetti, Harald Kittler, and Allan Halpern: “Skin Lesion Analysis Toward Melanoma Detection 2018: A Challenge Hosted by the International Skin Imaging Collaboration (ISIC)”, 2018; arXiv:1902.03368.
+                </p>
+                <i style="text-align:justify; text-justify:inter-ideograph">
+                    <b>License</b>: <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>
+                </i>
+
+                <h4>OCTMNIST/PneumoniaMNIST</h4>
+                <p style="text-align:justify; text-justify:inter-ideograph">
+                    Daniel S. Kermany, Michael Goldbaum, et al., "Identifying medical diagnoses and treatable diseases
+                    by image-based deep learning," Cell, vol. 172, no. 5, pp. 1122 – 1131.e9, 2018.
+                </p>
+                <i style="text-align:justify; text-justify:inter-ideograph">
+                    <b>License</b>: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>
+                </i>
+
+                <h4>RetinaMNIST</h4>
+                <p style="text-align:justify; text-justify:inter-ideograph">
+                    DeepDR Diabetic Retinopathy Image Dataset (DeepDRiD), "The 2nd diabetic retinopathy – grading and
+                    image quality estimation challenge," https://isbi.deepdr.org/data.html, 2020.
+                </p>
+                <i style="text-align:justify; text-justify:inter-ideograph">
+                    <b>License</b>: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>
+                </i>
+
+                <h4>BreastMNIST</h4>
+                <p style="text-align:justify; text-justify:inter-ideograph">
+                    Walid Al-Dhabyani, Mohammed Gomaa, Hussien Khaled, and Aly Fahmy, "Dataset of breast ultrasound
+                    images," Data in Brief, vol. 28, pp. 104863, 2020.
+                </p>
+                <i style="text-align:justify; text-justify:inter-ideograph">
+                    <b>License</b>: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>
+                </i>
+
+                <h4>OrganMNIST_{Axial,Coronal,Sagittal}</h4>
+                <p style="text-align:justify; text-justify:inter-ideograph">
+                    Patrick Bilic, Patrick Ferdinand Christ, et al., "The liver tumor segmentation benchmark (lits),"
+                    arXiv preprint arXiv:1901.04056, 2019.
+                </p>
+                <p style="text-align:justify; text-justify:inter-ideograph">
+                    Xuanang Xu, Fugen Zhou, et al., "Efficient multiple organ localization in ct image using 3d region
+                    proposal network," IEEE Transactions on Medical Imaging, vol. 38, no. 8, pp. 1885–1898, 2019.
+                </p>
+                <i style="text-align:justify; text-justify:inter-ideograph">
+                    <b>License</b>: <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>
+                </i>
+            </div>
+
+        </div>
+
+        <div class="section">
+            <p align="center">
+                Copyright © 2020- MedMNIST Team
+            </p>
+
+            <p align="center">
+                <small>
+                    Check the source code of this website on <a href="https://github.com/MedMNIST/medmnist.github.io"
+                        target="_blank">GitHub</a>.
+                </small>
+                <br>
+                <small>
+                    This page uses the template of <a href="https://donglaiw.github.io/proj/mitoEM/index.html"
+                        target="_blank">MitoEM</a> from <a href="https://donglaiw.github.io/"
+                        target="_blank">Donglai Wei</a>.
+                </small>
+            </p>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>
