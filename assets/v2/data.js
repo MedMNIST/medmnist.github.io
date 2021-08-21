@@ -1,8 +1,8 @@
 const site = {
     copyright: "MedMNIST Team",
-    year: "2020-2021",
+    year: "2020-",
     url: "https://github.com/MedMNIST/medmnist.github.io",
-    lastUpdated: "July, 2021",
+    lastUpdated: "Aug, 2021",
 };
 
 const about = {
@@ -16,18 +16,40 @@ const about = {
             name: "Rui Shi",
         },
         {
+            name: "Donglai Wei",
+            href: "https://donglaiw.github.io/"
+        },
+        {
+            name: "Zequan Liu",
+        },
+        {
+            name: "Lin Zhao",
+        },
+        {
+            name: "Bilian Ke",
+            href: "https://scholar.google.com/citations?user=2cX5y8kAAAAJ"
+        },
+        {
+            name: "Hanspeter Pfister",
+            href: "https://scholar.google.com/citations?user=VWX-GMAAAAAJ"
+        },
+        {
             name: "Bingbing Ni",
             href: "https://scholar.google.com/citations?user=eUbmKwYAAAAJ"
         },
     ],
     affiliations: [
         "Shanghai Jiao Tong University, Shanghai, China",
+        "Harvard University, Cambridge, MA",
+        "RWTH Aachen University, Aachen, Germany",
+        "Zhongshan Hospital Affiliated to Fudan University, Shanghai, China",
+        "Shanghai General Hospital, Shanghai Jiao Tong University School of Medicine, Shanghai, China"
     ],
     materials: [
         {
             name: "Paper",
             where: "arXiv",
-            href: "https://arxiv.org/abs/2010.14925"
+            href: "#TODO"
         },
         {
             name: "Code",
@@ -37,15 +59,24 @@ const about = {
         {
             name: "Dataset",
             where: "Zenodo",
-            href: "https://doi.org/10.5281/zenodo.4269852"
+            href: "https://doi.org/10.5281/zenodo.5208230"
+        },
+        {
+            name: "MedMNIST v1",
+            where: "ISBI'21",
+            href: "https://medmnist.github.io/v1"
         }
     ],
     teaser: "assets/v2/imgs/overview.jpg"
 };
 
-const references = [
+const medmnist2d = [
     {
         dataset: "PathMNIST",
+        modality: "Colon Pathology",
+        task: "Multi-Class (9)",
+        samples: "107,180",
+        splits: "89,996 / 10,004 / 7,180",
         license: "CC BY 4.0",
         licenseURL: "https://creativecommons.org/licenses/by/4.0/",
         citations: [
@@ -54,12 +85,49 @@ const references = [
     },
     {
         dataset: "ChestMNIST",
+        modality: "Chest X-ray",
+        task: "Multi-Label (14) Binary-Class (2)",
+        samples: "112,120",
+        splits: "78,468 / 11,219 / 22,433",
         license: "CC0 1.0",
         licenseURL: "https://creativecommons.org/publicdomain/zero/1.0/",
         citations: [
             'Xiaosong Wang, Yifan Peng, et al., "Chestx-ray8: Hospital-scale chest x-ray database and benchmarks on weakly-supervised classification and localization of common thorax diseases," in CVPR, 2017, pp. 3462–3471.'
         ]
     },
+];
+
+const medmnist3d = [
+    {
+        dataset: "OrganMNIST3D",
+        modality: "Abdominal CT",
+        task: "Multi-Class (11)",
+        samples: "1,743",
+        splits: "972 / 161 / 610",
+        license: "CC BY 4.0",
+        licenseURL: "https://creativecommons.org/licenses/by/4.0/",
+        citations: [
+            'Patrick Bilic, Patrick Ferdinand Christ, et al., "The liver tumor segmentation benchmark (lits)," arXiv preprint arXiv:1901.04056, 2019.',
+            'Xuanang Xu, Fugen Zhou, et al., "Efficient multiple organ localization in ct image using 3d region proposal network," IEEE Transactions on Medical Imaging, vol. 38, no. 8, pp. 1885–1898, 2019.'
+        ]
+    },
+    {
+        dataset: "NoduleMNIST3D",
+        modality: "Chest CT",
+        task: "Binary-Class (2)",
+        samples: "1,849",
+        splits: "1,158 / 165 / 526",
+        license: "CC BY 3.0",
+        licenseURL: "https://creativecommons.org/licenses/by/3.0/",
+        citations: [
+            'Armato III, S. G. et al. The lung image database consortium (lidc) and image database resource initiative (idri): A completed reference database of lung nodules on ct scans. Med. Phys. 38, 915–931, 2011.'
+        ]
+    },
+];
+
+
+const references = [
+
     {
         dataset: "DermaMNIST",
         license: "CC BY-NC 4.0",
@@ -116,23 +184,6 @@ const references = [
         citations: [
             'Patrick Bilic, Patrick Ferdinand Christ, et al., "The liver tumor segmentation benchmark (lits)," arXiv preprint arXiv:1901.04056, 2019.',
             'Xuanang Xu, Fugen Zhou, et al., "Efficient multiple organ localization in ct image using 3d region proposal network," IEEE Transactions on Medical Imaging, vol. 38, no. 8, pp. 1885–1898, 2019.'
-        ]
-    },
-    {
-        dataset: "OrganMNIST3D",
-        license: "CC BY 4.0",
-        licenseURL: "https://creativecommons.org/licenses/by/4.0/",
-        citations: [
-            'Patrick Bilic, Patrick Ferdinand Christ, et al., "The liver tumor segmentation benchmark (lits)," arXiv preprint arXiv:1901.04056, 2019.',
-            'Xuanang Xu, Fugen Zhou, et al., "Efficient multiple organ localization in ct image using 3d region proposal network," IEEE Transactions on Medical Imaging, vol. 38, no. 8, pp. 1885–1898, 2019.'
-        ]
-    },
-    {
-        dataset: "NoduleMNIST3D",
-        license: "CC BY 3.0",
-        licenseURL: "https://creativecommons.org/licenses/by/3.0/",
-        citations: [
-            'Armato III, S. G. et al. The lung image database consortium (lidc) and image database resource initiative (idri): A completed reference database of lung nodules on ct scans. Med. Phys. 38, 915–931, 2011.'
         ]
     },
     {

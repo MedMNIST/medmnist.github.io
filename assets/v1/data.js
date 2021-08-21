@@ -32,7 +32,7 @@ const about = {
         {
             name: "Code",
             where: "GitHub",
-            href: "https://github.com/MedMNIST/MedMNIST"
+            href: "https://github.com/MedMNIST/MedMNIST/tree/v1"
         },
         {
             name: "Dataset",
