@@ -253,8 +253,8 @@ const medmnist3d = [
         task: "Binary-Class (2)",
         samples: "1,584",
         splits: "1,188 / 98 / 298",
-        license: "CC BY 3.0",
-        licenseURL: "https://creativecommons.org/licenses/by/3.0/",
+        license: "CC BY 4.0",
+        licenseURL: "https://creativecommons.org/licenses/by/4.0/",
         citations: [
             'New'
         ]
