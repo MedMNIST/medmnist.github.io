@@ -3,7 +3,7 @@ const app = new Vue({
     data: {
         selected2d: medmnist2d[0],
         selected3d: medmnist3d[0],
-        selectedFormat3d: "gif"
+        selectedFormat3d: "jpg"
     },
     created: function () {
         console.log("READY");

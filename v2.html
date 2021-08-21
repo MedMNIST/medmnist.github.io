@@ -279,7 +279,7 @@
                 <div class="d-none d-md-block col-md-4 col-lg-3">
                     <img v-bind:src="'assets/v2/imgs/'+selected3d.dataset+'.'+selectedFormat3d" class="img-fluid">
 
-                    <span class="badge" v-for="format3d in ['gif', 'jpg']"
+                    <span class="badge" v-for="format3d in ['jpg', 'gif']"
                         v-bind:class="{'badge-dark': selectedFormat3d===format3d}"
                         v-on:click="selectedFormat3d = format3d">{{format3d}}</span>
                 </div>
