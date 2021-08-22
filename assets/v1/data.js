@@ -41,7 +41,7 @@ const about = {
         },
         {
             name: "MedMNIST v2",
-            where: "arXiv",
+            where: "Website",
             href: "https://medmnist.github.io/v2"
         }
     ],
