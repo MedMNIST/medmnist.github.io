@@ -38,6 +38,11 @@ const about = {
             name: "Dataset",
             where: "Zenodo",
             href: "https://doi.org/10.5281/zenodo.4269852"
+        },
+        {
+            name: "MedMNIST v2",
+            where: "arXiv",
+            href: "https://medmnist.github.io/v2"
         }
     ],
     teaser: "assets/v1/imgs/overview.jpg"
