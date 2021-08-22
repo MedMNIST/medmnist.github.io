@@ -5,13 +5,12 @@
     <title>MedMNIST</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="keywords" content="MedMNIST, classification, decathlon, AutoML, medical image analysis">
     <meta name="description"
-        content="MedMNIST Classification Decathlon: A Lightweight AutoML Benchmark for Medical Image Analysis">
+        content="MedMNIST v2: A Large-Scale Lightweight Benchmark for 2D and 3D Biomedical Image Classification">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="vender/bootstrap.min.css" rel="stylesheet">
     <script src="vender/vue.min.js"></script>
-    <link href="assets/v1/favicon.ico" rel="icon" type="image/x-icon" />
+    <link href="assets/v2/favicon.ico" rel="icon" type="image/x-icon" />
 
 </head>
 
@@ -21,513 +20,941 @@
     <div class="container" id="app">
 
         <!-- about -->
-        <div class="row">
-            <div class="col">
+        <div>
+            <div class="row">
+                <div class="col">
 
-                <br> <br>
+                    <br> <br>
 
-                <h1 align="center"><b>{{about.title}}</b></h1>
+                    <h1 align="center"><b>{{about.title}}</b></h1>
 
-                <br>
+                    <br> <br>
 
-                <h4 align="center">
-                    <ul class="list-inline">
-                        <li class="list-inline-item" v-for="(author,i) in about.authors">
-                            <span v-if="author.href"><a v-bind:href="author.href"
-                                    target="_blank">{{author.name}}</a></span><span v-else>{{author.name}}</span><span
-                                v-if="i<(about.authors.length-1)">,</span>
-                        </li>
-                    </ul>
-                </h4>
-
-
-                <h5 align="center" v-for="(affiliation,i) in about.affiliations">
-                    <sup v-if="about.affiliations.length>1">{{i+1}}</sup> {{affiliation}}
-                </h5>
-
-                <br>
-
-                <h3 align="center">
-                    <ul class="list-inline">
-                        <li class="list-inline-item" v-for="(material,i) in about.materials">
-                            <b>{{material.name}}</b>
-                            [<a v-bind:href="material.href" target="_blank">{{material.where}}</a>]
-                        </li>
-                    </ul>
-                </h3>
-
-                <p align="center">
-                    <img v-bind:src="about.teaser" width="100%">
-                </p>
+                    <h4 align="center">
+                        <ul class="list-inline">
+                            <li class="list-inline-item" v-for="(author,i) in about.authors">
+                                <span v-if="author.href"><a v-bind:href="author.href"
+                                        target="_blank">{{author.name}}</a></span><span
+                                    v-else>{{author.name}}</span><span v-if="i<(about.authors.length-1)">,</span>
+                            </li>
+                        </ul>
+                    </h4>
 
 
+                    <h5 align="center" v-for="(affiliation,i) in about.affiliations">
+                        <sup v-if="about.affiliations.length>1">{{i+1}}</sup> {{affiliation}}
+                    </h5>
+
+                    <br> <br>
+
+                    <h2 align="center">
+                        <ul class="list-inline">
+                            <li class="list-inline-item" v-for="(material,i) in about.materials">
+                                <b>{{material.name}}</b>
+                                [<a v-bind:href="material.href" target="_blank">{{material.where}}</a>]
+                            </li>
+                        </ul>
+                    </h2>
+
+
+
+                    <br>
+
+                    <p align="center">
+                        <img v-bind:src="about.teaser" width="100%">
+                    </p>
+
+
+                </div>
             </div>
 
         </div>
+
+        <hr>
 
         <!-- abstract -->
-        <div class="row">
-            <div class="col">
-                <h2>Abstract</h2>
-                <p style="text-align:justify; text-justify:inter-ideograph">
-                    We present MedMNIST, a collection of 10 pre-processed medical open datasets. MedMNIST is
-                    standardized to perform classification tasks on lightweight 28 * 28 images, which requires no
-                    background knowledge. Covering the primary data modalities in medical image analysis, it is diverse
-                    on data scale (from 100 to 100,000) and tasks (binary/multi-class, ordinal regression and
-                    multi-label). MedMNIST could be used for educational purpose, rapid prototyping, multi-modal machine
-                    learning or AutoML in medical image analysis. Moreover, MedMNIST Classification Decathlon is
-                    designed to benchmark AutoML algorithms on all 10 datasets; We have compared several baseline
-                    methods, including open-source or commercial AutoML tools.
-                </p>
+        <div>
+            <div class="row">
+                <div class="col">
+                    <h2>Abstract</h2>
+                    <p style="text-align:justify; text-justify:inter-ideograph">
+                        We introduce MedMNIST v2, a large-scale MNIST-like collection of standardized biomedical images,
+                        including 12 datasets for 2D and 6 datasets for 3D.
+                        All images are pre-processed into 28 x 28 (2D) or 28 x 28 x 28 (3D) with the corresponding
+                        classification labels,
+                        so that no background knowledge is required for users.
+                        Covering primary data modalities in biomedical images,
+                        MedMNIST v2 is designed to perform classification on lightweight 2D and 3D images
+                        with various data scales (from 100 to 100,000) and diverse tasks (binary/multi-class,
+                        ordinal regression and multi-label). The resulting dataset,
+                        consisting of 708,069 2D images and 10,214 3D images in total,
+                        could support numerous research / educational purposes in biomedical image analysis,
+                        computer vision and machine learning. We benchmark several baseline methods on MedMNIST v2,
+                        including 2D / 3D neural networks and open-source / commercial AutoML tools.
+                    </p>
+                </div>
             </div>
         </div>
+
+        <hr>
 
         <!-- hightlight -->
-        <div class="row">
-            <div class="col">
-                <h2>Key Features</h2>
-                <ul>
-                    <li style="text-align:justify; text-justify:inter-ideograph">
-                        <b>Educational</b>: Our multi-modal data, from multiple open medical image datasets with
-                        Creative Commons (CC) Licenses, is easy to use for educational purpose.
-                    </li>
-                    <li style="text-align:justify; text-justify:inter-ideograph">
-                        <b>Standardized</b>: Data is pre-processed into same format, which requires no background
-                        knowledge for users.
-                    </li>
-                    <li style="text-align:justify; text-justify:inter-ideograph">
-                        <b>Diverse</b>: The multi-modal datasets covers diverse data scales (from 100 to 100,000) and
-                        tasks (binary/multiclass, ordinal regression and multi-label).
-                    </li>
-                    <li style="text-align:justify; text-justify:inter-ideograph">
-                        <b>Lightweight</b>: The small size of 28 × 28 is friendly for rapid prototyping and
-                        experimenting multi-modal machine learning and AutoML algorithms.
-                    </li>
+        <div>
+            <div class="row">
+                <div class="col">
+                    <h2>Key Features</h2>
+                    <ul>
+                        <li style="text-align:justify; text-justify:inter-ideograph">
+                            <b>Educational</b>: Our multi-modal data, from multiple open medical image datasets with
+                            Creative Commons (CC) Licenses, is easy to use for educational purpose.
+                        </li>
+                        <li style="text-align:justify; text-justify:inter-ideograph">
+                            <b>Standardized</b>: Data is pre-processed into same format, which requires no background
+                            knowledge for users.
+                        </li>
+                        <li style="text-align:justify; text-justify:inter-ideograph">
+                            <b>Diverse</b>: The multi-modal datasets covers diverse data scales (from 100 to 100,000)
+                            and
+                            tasks (binary/multiclass, ordinal regression and multi-label).
+                        </li>
+                        <li style="text-align:justify; text-justify:inter-ideograph">
+                            <b>Lightweight</b>: The small size is friendly for rapid prototyping and
+                            experimenting multi-modal machine learning and AutoML algorithms.
+                        </li>
 
-                </ul>
-                <p style="text-align:justify; text-justify:inter-ideograph">
-                    Please note that this dataset is <b>NOT</b> intended for clinical use.
-                </p>
+                    </ul>
+                    <p style="text-align:justify; text-justify:inter-ideograph">
+                        Please note that this dataset is <b>NOT</b> intended for clinical use.
+                    </p>
+                </div>
             </div>
         </div>
+
+        <hr>
 
         <!-- materials -->
-        <div class="row">
-            <div class="col">
-                <h2>Materials</h2>
+        <div>
+            <div class="row">
+                <div class="col-12">
+                    <h2>Materials</h2>
 
-                <div class="table-responsive justify-content-center">
+                    <p>
+                        The MedMNIST v2 dataset consists of <b>12 pre-processed 2D datasets</b> and <b>6 pre-processed
+                            3D
+                            datasets</b> from selected sources covering primary data modalities (e.g., X-Ray, OCT,
+                        Ultrasound, CT, Electron Microscope), diverse classification tasks (binary/multi-class, ordinal
+                        regression and multi-label) and data scales (from 100 to 100,000). For simplicity, we call the
+                        collection of all 2D datasets as <b>MedMNIST2D</b>, and that of 3D as <b>MedMNIST3D</b>.
+                    </p>
+                </div>
 
-                    <table class="table table-hover" style="text-align: center">
-                        <caption style="text-align: center">An Overview of MedMNIST Dataset</caption>
-                        <thead class="thead-light">
-                            <tr>
-                                <th>Name</th>
-                                <th>Data Modality</th>
-                                <th>Tasks (# Classes/Labels)</th>
-                                <th># Training</th>
-                                <th># Validation</th>
-                                <th># Test</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>PathMNIST</td>
-                                <td>Pathology</td>
-                                <td>Multi-Class (9)</td>
-                                <td>89,996</td>
-                                <td>10,004</td>
-                                <td>7,180</td>
-                            </tr>
-                            <tr>
-                                <td>ChestMNIST</td>
-                                <td>Chest X-ray</td>
-                                <td>Multi-Label (14) Binary-Class (2)</td>
-                                <td>78,468</td>
-                                <td>11,219</td>
-                                <td>22,433</td>
-                            </tr>
-                            <tr>
-                                <td>DermaMNIST</td>
-                                <td>Dermatoscope</td>
-                                <td>Multi-Class (7)</td>
-                                <td>7,007</td>
-                                <td>1,003</td>
-                                <td>2,005</td>
-                            </tr>
-                            <tr>
-                                <td>OCTMNIST</td>
-                                <td>OCT</td>
-                                <td>Multi-Class (4)</td>
-                                <td>97,477</td>
-                                <td>10,832</td>
-                                <td>1,000</td>
-                            </tr>
-                            <tr>
-                                <td>PneumoniaMNIST</td>
-                                <td>Chest X-ray</td>
-                                <td>Binary-Class (2)</td>
-                                <td>4,708</td>
-                                <td>524</td>
-                                <td>624</td>
-                            </tr>
-                            <tr>
-                                <td>RetinaMNIST</td>
-                                <td>Fundus Camera</td>
-                                <td>Ordinal Regression (5)</td>
-                                <td>1,080</td>
-                                <td>120</td>
-                                <td>400</td>
-                            </tr>
-                            <tr>
-                                <td>BreastMNIST</td>
-                                <td>Breast Ultrasound</td>
-                                <td>Binary-Class (2)</td>
-                                <td>546</td>
-                                <td>78</td>
-                                <td>156</td>
-                            </tr>
-                            <tr>
-                                <td>OrganMNIST_Axial</td>
-                                <td>Abdominal CT</td>
-                                <td>Multi-Class (11)</td>
-                                <td>34,581</td>
-                                <td>6,491</td>
-                                <td>17,778</td>
-                            </tr>
-                            <tr>
-                                <td>OragnMNIST_Coronal</td>
-                                <td>Abdominal CT</td>
-                                <td>Multi-Class (11)</td>
-                                <td>13,000</td>
-                                <td>2,392</td>
-                                <td>8,268</td>
-                            </tr>
-                            <tr>
-                                <td>OrganMNIST_Sagittal</td>
-                                <td>Abdominal CT</td>
-                                <td>Multi-Class (11)</td>
-                                <td>13,940</td>
-                                <td>2,452</td>
-                                <td>8,829</td>
-                            </tr>
-                        </tbody>
-                    </table>
+
+            </div>
+
+            <hr>
+
+            <h3>MedMNIST2D</h3>
+
+            <div class="row">
+                <div class="col-12">
+
+                    <div class="table-responsive justify-content-center">
+
+                        <table class="table table-hover" style="text-align: center">
+                            <caption style="text-align: center">
+                                An Overview of MedMNIST2D in MedMNIST v2.
+                                <b>Click</b> each row to view more details.
+                            </caption>
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>MedMNIST2D</th>
+                                    <th>Data Modality</th>
+                                    <th>Tasks (# Classes/Labels)</th>
+                                    <th># Samples</th>
+                                    <th># Training / Validation / Test</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="subset in medmnist2d" v-on:click="selected2d = subset">
+                                    <td>{{subset.dataset}}</td>
+                                    <td>{{subset.modality}}</td>
+                                    <td>{{subset.task}}</td>
+                                    <td>{{subset.samples}}</td>
+                                    <td>{{subset.splits}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+            <br>
+
+            <h4>Facts of <b>{{selected2d.dataset}}</b></h4>
+
+            <div class="row">
+
+                <div class="d-none d-md-block col-md-4 col-lg-3">
+                    <img v-bind:src="'assets/v2/imgs/'+selected2d.dataset+'.jpg'" class="img-fluid">
+                </div>
+
+                <div class="col">
+
+                    <h5>
+                        <b>Data Modality:</b> {{selected2d.modality}}
+                    </h5>
+
+                    <h5>
+                        <b>Task:</b> {{selected2d.task}}
+                    </h5>
+
+                    <h5>
+                        <b>Number of Samples:</b> {{selected2d.samples}} ({{selected2d.splits}})
+                    </h5>
+
+
+                    <h5><b>Source Data:</b></h5>
+                    <p style="text-align:justify; text-justify:inter-ideograph"
+                        v-for="citation in selected2d.citations">
+                        {{citation}}
+                    </p>
+
+                    <small>
+                        <i style="text-align:justify; text-justify:inter-ideograph">
+                            <b>License:</b>
+                            <a v-bind:href="selected2d.licenseURL" target="_blank"> {{selected2d.license}}</a>
+                        </i>
+                    </small>
 
                 </div>
 
+
+            </div>
+
+            <hr>
+
+            <h3>MedMNIST3D</h3>
+
+            <div class="row">
+                <div class="col-12">
+
+                    <div class="table-responsive justify-content-center">
+
+                        <table class="table table-hover" style="text-align: center">
+                            <caption style="text-align: center">
+                                An Overview of MedMNIST3D in MedMNIST v2.
+                                <b>Click</b> each row to view more details.
+                            </caption>
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>MedMNIST3D</th>
+                                    <th>Data Modality</th>
+                                    <th>Tasks (# Classes/Labels)</th>
+                                    <th># Samples</th>
+                                    <th># Training / Validation / Test</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="subset in medmnist3d" v-on:click="selected3d = subset">
+                                    <td>{{subset.dataset}}</td>
+                                    <td>{{subset.modality}}</td>
+                                    <td>{{subset.task}}</td>
+                                    <td>{{subset.samples}}</td>
+                                    <td>{{subset.splits}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+            
+            <br>
+
+            <h4>Facts of <b>{{selected3d.dataset}}</b></h4>
+
+            <div class="row">
+
+                <div class="d-none d-md-block col-md-4 col-lg-3">
+                    <img v-bind:src="'assets/v2/imgs/'+selected3d.dataset+'.'+selectedFormat3d" class="img-fluid">
+
+                    <span class="badge" v-for="format3d in ['jpg', 'gif']"
+                        v-bind:class="{'badge-dark': selectedFormat3d===format3d}"
+                        v-on:click="selectedFormat3d = format3d">{{format3d}}</span>
+                </div>
+
+                <div class="col">
+
+                    <h5>
+                        <b>Data Modality:</b> {{selected3d.modality}}
+                    </h5>
+
+                    <h5>
+                        <b>Task:</b> {{selected3d.task}}
+                    </h5>
+
+                    <h5>
+                        <b>Number of Samples:</b> {{selected3d.samples}} ({{selected3d.splits}})
+                    </h5>
+
+
+                    <h5><b>Source Data:</b></h5>
+                    <p style="text-align:justify; text-justify:inter-ideograph"
+                        v-for="citation in selected3d.citations">
+                        {{citation}}
+                    </p>
+
+                    <small>
+                        <i style="text-align:justify; text-justify:inter-ideograph">
+                            <b>License:</b>
+                            <a v-bind:href="selected3d.licenseURL" target="_blank"> {{selected3d.license}}</a>
+                        </i>
+                    </small>
+
+                </div>
+
+
             </div>
         </div>
+
+        <hr>
+        <!-- <div>
+            <div class="row">
+                <div class="col">
+                    <h2>Materials</h2>
+
+
+                    <div class="table-responsive justify-content-center">
+
+                        <table class="table table-hover" style="text-align: center">
+                            <caption style="text-align: center">An Overview of MedMNIST v2 Dataset. MC: Multi-Class. BC:
+                                Binary-Class. ML: Multi-Label. OR: Ordinal Regression.</caption>
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>MedMNIST2D</th>
+                                    <th>Data Modality</th>
+                                    <th>Tasks (# Classes/Labels)</th>
+                                    <th># Samples</th>
+                                    <th># Training / Validation / Test</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>DermaMNIST</td>
+                                    <td>Dermatoscope</td>
+                                    <td>MC (7)</td>
+                                    <td>10,015</td>
+                                    <td>7,007 / 1,003 / 2,005</td>
+                                </tr>
+                                <tr>
+                                    <td>OCTMNIST</td>
+                                    <td>Retinal OCT</td>
+                                    <td>MC (4)</td>
+                                    <td>109,309</td>
+                                    <td>97,477 / 10,832 / 1,000</td>
+                                </tr>
+                                <tr>
+                                    <td>PneumoniaMNIST</td>
+                                    <td>Chest X-ray</td>
+                                    <td>BC (2)</td>
+                                    <td>5,856</td>
+                                    <td>4,708 / 524 / 624</td>
+                                </tr>
+                                <tr>
+                                    <td>RetinaMNIST</td>
+                                    <td>Fundus Camera</td>
+                                    <td>OR (5)</td>
+                                    <td>1,600</td>
+                                    <td>1,080 / 120 / 400</td>
+                                </tr>
+                                <tr>
+                                    <td>BreastMNIST</td>
+                                    <td>Breast Ultrasound</td>
+                                    <td>BC (2)</td>
+                                    <td>780</td>
+                                    <td>546 / 78 / 156</td>
+                                </tr>
+                                <tr>
+                                    <td>BloodMNIST</td>
+                                    <td>Blood Cell Microscope</td>
+                                    <td>MC (8)</td>
+                                    <td>17,092</td>
+                                    <td>11,959 / 1,712 / 3,421</td>
+                                </tr>
+                                <tr>
+                                    <td>TissueMNIST</td>
+                                    <td>Kidney Cortex Microscope</td>
+                                    <td>MC (8)</td>
+                                    <td>236,386</td>
+                                    <td>165,466 / 23,640 / 47,280</td>
+                                </tr>
+                                <tr>
+                                    <td>OrganAMNIST</td>
+                                    <td>Abdominal CT</td>
+                                    <td>MC (11)</td>
+                                    <td>58,850</td>
+                                    <td>34,581 / 6,491 / 17,778</td>
+                                </tr>
+                                <tr>
+                                    <td>OragnCMNIST</td>
+                                    <td>Abdominal CT</td>
+                                    <td>MC (11)</td>
+                                    <td>23,660</td>
+                                    <td>13,000 / 2,392 / 8,268</td>
+                                </tr>
+                                <tr>
+                                    <td>OrganSMNIST</td>
+                                    <td>Abdominal CT</td>
+                                    <td>MC (11)</td>
+                                    <td>25,221</td>
+                                    <td>13,940 / 2,452 / 8,829</td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>AdrenalMNIST3D</td>
+                                    <td>Shape from Abdominal CT</td>
+                                    <td>BC (2)</td>
+                                    <td>1,584</td>
+                                    <td>1,188 / 98 / 298</td>
+                                </tr>
+                                <tr>
+                                    <td>FractureMNIST3D</td>
+                                    <td>Chest CT</td>
+                                    <td>MC (3)</td>
+                                    <td>1,370</td>
+                                    <td>1,027 / 103 / 240</td>
+                                </tr>
+                                <tr>
+                                    <td>VesselMNIST3D</td>
+                                    <td>Shape from Brain MRA</td>
+                                    <td>BC (2)</td>
+                                    <td>1,909</td>
+                                    <td>1,335 / 192 / 382</td>
+                                </tr>
+                                <tr>
+                                    <td>SynapseMNIST3D</td>
+                                    <td>Electron Microscope</td>
+                                    <td>BC (2)</td>
+                                    <td>1,759</td>
+                                    <td>1,230 / 177 / 352</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </div>
+            </div>
+        </div> -->
 
         <!-- results -->
-        <div class="row">
-            <div class="col">
-                <h2>Benchmarking</h2>
+        <div>
+            <div class="row">
+                <div class="col">
+                    <h2>Benchmarking</h2>
 
-                <div class="table-responsive justify-content-center">
-                    <table class="table table-sm table-hover" style="text-align: center">
-                        <thead class="thead-light">
-                            <tr>
-                                <th rowspan="2">Methods</th>
-                                <th colspan="2">PathMNIST</th>
-                                <th colspan="2">ChestMNIST</th>
-                                <th colspan="2">DermaMNIST</th>
-                                <th colspan="2">OCTMNIST</th>
-                                <th colspan="2">PneumoniaMNIST</th>
-                            </tr>
-                            <tr>
-                                <td>AUC</td>
-                                <td>ACC</td>
-                                <td>AUC</td>
-                                <td>ACC</td>
-                                <td>AUC</td>
-                                <td>ACC</td>
-                                <td>AUC</td>
-                                <td>ACC</td>
-                                <td>AUC</td>
-                                <td>ACC</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>ResNet-18 (28)</td>
-                                <td>0.972</td>
-                                <td>0.844</td>
-                                <td>0.706</td>
-                                <td>0.947</td>
-                                <td>0.899</td>
-                                <td>0.721</td>
-                                <td>0.951</td>
-                                <td><b>0.758</b></td>
-                                <td>0.957</td>
-                                <td>0.843</td>
-                            </tr>
-                            <tr>
-                                <td>ResNet-18 (224)</td>
-                                <td>0.978</td>
-                                <td>0.860</td>
-                                <td>0.713</td>
-                                <td><b>0.948</b></td>
-                                <td>0.896</td>
-                                <td>0.727</td>
-                                <td>0.960</td>
-                                <td>0.752</td>
-                                <td>0.970</td>
-                                <td>0.861</td>
-                            </tr>
-                            <tr>
-                                <td>ResNet-50 (28)</td>
-                                <td>0.979</td>
-                                <td><b>0.864</b></td>
-                                <td>0.692</td>
-                                <td>0.947</td>
-                                <td>0.886</td>
-                                <td>0.710</td>
-                                <td>0.939</td>
-                                <td>0.745</td>
-                                <td>0.949</td>
-                                <td>0.857</td>
-                            </tr>
-                            <tr>
-                                <td>ResNet-50 (224)</td>
-                                <td>0.978</td>
-                                <td>0.848</td>
-                                <td>0.706</td>
-                                <td>0.947</td>
-                                <td>0.895</td>
-                                <td>0.719</td>
-                                <td>0.951</td>
-                                <td>0.750</td>
-                                <td>0.968</td>
-                                <td>0.896</td>
-                            </tr>
-                            <tr>
-                                <td>auto-sklearn</td>
-                                <td>0.500</td>
-                                <td>0.186</td>
-                                <td>0.647</td>
-                                <td>0.642</td>
-                                <td>0.906</td>
-                                <td>0.734</td>
-                                <td>0.883</td>
-                                <td>0.595</td>
-                                <td>0.947</td>
-                                <td>0.865</td>
-                            </tr>
-                            <tr>
-                                <td>AutoKeras</td>
-                                <td>0.979</td>
-                                <td><b>0.864</b></td>
-                                <td>0.715</td>
-                                <td>0.939</td>
-                                <td>0.921</td>
-                                <td>0.756</td>
-                                <td>0.956</td>
-                                <td>0.736</td>
-                                <td>0.970</td>
-                                <td>0.918</td>
-                            </tr>
-                            <tr>
-                                <td>Google AutoML Vision</td>
-                                <td><b>0.982</b></td>
-                                <td>0.811</td>
-                                <td><b>0.718</b></td>
-                                <td>0.947</td>
-                                <td><b>0.925</b></td>
-                                <td><b>0.766</b></td>
-                                <td><b>0.965</b></td>
-                                <td>0.732</td>
-                                <td><b>0.993</b></td>
-                                <td><b>0.941</b></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-responsive justify-content-center">
+                        <table class="table table-sm table-hover" style="text-align: center">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th rowspan="2">Methods</th>
+                                    <th colspan="2">PathMNIST</th>
+                                    <th colspan="2">ChestMNIST</th>
+                                    <th colspan="2">DermaMNIST</th>
+                                    <th colspan="2">OCTMNIST</th>
+                                    <th colspan="2">PneumoniaMNIST</th>
+                                    <th colspan="2">RetinaMNIST</th>
+                                </tr>
+                                <tr>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ResNet-18 (28)</td>
+                                    <td>0.983</td>
+                                    <td>0.907</td>
+                                    <td>0.768</td>
+                                    <td>0.947</td>
+                                    <td>0.917</td>
+                                    <td>0.735</td>
+                                    <td>0.943</td>
+                                    <td>0.743</td>
+                                    <td>0.944</td>
+                                    <td>0.854</td>
+                                    <td>0.717</td>
+                                    <td>0.524</td>
+                                </tr>
+                                <tr>
+                                    <td>ResNet-18 (224)</td>
+                                    <td><b>0.990</b></td>
+                                    <td>0.905</td>
+                                    <td>0.772</td>
+                                    <td>0.947</td>
+                                    <td><b>0.920</b></td>
+                                    <td>0.754</td>
+                                    <td>0.957</td>
+                                    <td>0.757</td>
+                                    <td>0.956</td>
+                                    <td>0.863</td>
+                                    <td>0.710</td>
+                                    <td>0.493</td>
+                                </tr>
+                                <tr>
+                                    <td>ResNet-50 (28)</td>
+                                    <td><b>0.990</b></td>
+                                    <td><b>0.911</b></td>
+                                    <td>0.769</td>
+                                    <td>0.947</td>
+                                    <td>0.913</td>
+                                    <td>0.735</td>
+                                    <td>0.952</td>
+                                    <td>0.762</td>
+                                    <td>0.948</td>
+                                    <td>0.854</td>
+                                    <td>0.726</td>
+                                    <td>0.528</td>
+                                </tr>
+                                <tr>
+                                    <td>ResNet-50 (224)</td>
+                                    <td>0.989</td>
+                                    <td>0.892</td>
+                                    <td>0.773</td>
+                                    <td><b>0.948</b></td>
+                                    <td>0.912</td>
+                                    <td>0.731</td>
+                                    <td>0.958</td>
+                                    <td><b>0.776</b></td>
+                                    <td>0.962</td>
+                                    <td>0.884</td>
+                                    <td>0.716</td>
+                                    <td>0.511</td>
+                                </tr>
+                                <tr>
+                                    <td>auto-sklearn</td>
+                                    <td>0.934</td>
+                                    <td>0.716</td>
+                                    <td>0.649</td>
+                                    <td>0.779</td>
+                                    <td>0.902</td>
+                                    <td>0.719</td>
+                                    <td>0.887</td>
+                                    <td>0.601</td>
+                                    <td>0.942</td>
+                                    <td>0.855</td>
+                                    <td>0.690</td>
+                                    <td>0.515</td>
+                                </tr>
+                                <tr>
+                                    <td>AutoKeras</td>
+                                    <td>0.959</td>
+                                    <td>0.834</td>
+                                    <td>0.742</td>
+                                    <td>0.937</td>
+                                    <td>0.915</td>
+                                    <td>0.749</td>
+                                    <td>0.955</td>
+                                    <td>0.763</td>
+                                    <td>0.947</td>
+                                    <td>0.878</td>
+                                    <td>0.719</td>
+                                    <td>0.503</td>
+                                </tr>
+                                <tr>
+                                    <td>Google AutoML Vision</td>
+                                    <td>0.944</td>
+                                    <td>0.728</td>
+                                    <td><b>0.778</b></td>
+                                    <td><b>0.948</b></td>
+                                    <td>0.914</td>
+                                    <td><b>0.768</b></td>
+                                    <td><b>0.963</b></td>
+                                    <td>0.771</td>
+                                    <td><b>0.991</b></td>
+                                    <td><b>0.946</b></td>
+                                    <td><b>0.750</b></td>
+                                    <td><b>0.531</b></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="table-responsive justify-content-center">
+                        <table class="table table-sm table-hover" style="text-align: center">
+                            <caption style="text-align: center">Benchmarking Performance on MedMNIST2D.</caption>
+                            <thead class="thead-light">
+                                <tr>
+                                    <th rowspan="2">Methods</th>
+                                    <th colspan="2">BreastMNIST</th>
+                                    <th colspan="2">BloodMNIST</th>
+                                    <th colspan="2">TissueMNIST</th>
+                                    <th colspan="2">OrganAMNIST</th>
+                                    <th colspan="2">OrganCMNIST</th>
+                                    <th colspan="2">OrganSMNIST</th>
+                                </tr>
+                                <tr>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ResNet-18 (28)</td>
+                                    <td>0.901</td>
+                                    <td><b>0.863</b></td>
+                                    <td><b>0.998</b></td>
+                                    <td>0.958</td>
+                                    <td>0.930</td>
+                                    <td>0.676</td>
+                                    <td>0.997</td>
+                                    <td>0.934</td>
+                                    <td>0.992</td>
+                                    <td>0.900</td>
+                                    <td>0.972</td>
+                                    <td>0.782</td>
+                                </tr>
+                                <tr>
+                                    <td>ResNet-18 (224)</td>
+                                    <td>0.891</td>
+                                    <td>0.833</td>
+                                    <td><b>0.998</b></td>
+                                    <td>0.963</td>
+                                    <td>0.934</td>
+                                    <td>0.682</td>
+                                    <td><b>0.998</b></td>
+                                    <td>0.951</td>
+                                    <td><b>0.994</b></td>
+                                    <td><b>0.922</b></td>
+                                    <td>0.974</td>
+                                    <td>0.778</td>
+                                </tr>
+                                <tr>
+                                    <td>ResNet-50 (28)</td>
+                                    <td>0.857</td>
+                                    <td>0.812</td>
+                                    <td>0.997</td>
+                                    <td>0.956</td>
+                                    <td>0.931</td>
+                                    <td>0.680</td>
+                                    <td>0.997</td>
+                                    <td>0.935</td>
+                                    <td>0.992</td>
+                                    <td>0.905</td>
+                                    <td>0.972</td>
+                                    <td>0.770</td>
+                                </tr>
+                                <tr>
+                                    <td>ResNet-50 (224)</td>
+                                    <td>0.866</td>
+                                    <td>0.842</td>
+                                    <td><b>0.997</b></td>
+                                    <td>0.950</td>
+                                    <td>0.932</td>
+                                    <td>0.680</td>
+                                    <td><b>0.998</b></td>
+                                    <td><b>0.947</b></td>
+                                    <td>0.993</td>
+                                    <td>0.911</td>
+                                    <td><b>0.975</b></td>
+                                    <td>0.785</td>
+                                </tr>
+                                <tr>
+                                    <td>auto-sklearn</td>
+                                    <td>0.836</td>
+                                    <td>0.803</td>
+                                    <td>0.984</td>
+                                    <td>0.877</td>
+                                    <td>0.828</td>
+                                    <td>0.532</td>
+                                    <td>0.963</td>
+                                    <td>0.762</td>
+                                    <td>0.976</td>
+                                    <td>0.829</td>
+                                    <td>0.945</td>
+                                    <td>0.672</td>
+                                </tr>
+                                <tr>
+                                    <td>AutoKeras</td>
+                                    <td>0.871</td>
+                                    <td>0.831</td>
+                                    <td><b>0.998</b></td>
+                                    <td>0.961</td>
+                                    <td><b>0.941</b></td>
+                                    <td><b>0.703</b></td>
+                                    <td>0.994</td>
+                                    <td>0.905</td>
+                                    <td>0.990</td>
+                                    <td>0.879</td>
+                                    <td>0.974</td>
+                                    <td><b>0.813</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Google AutoML Vision</td>
+                                    <td><b>0.919</b></td>
+                                    <td>0.861</td>
+                                    <td><b>0.998</b></td>
+                                    <td><b>0.966</b></td>
+                                    <td>0.924</td>
+                                    <td>0.673</td>
+                                    <td>0.990</td>
+                                    <td>0.886</td>
+                                    <td>0.988</td>
+                                    <td>0.877</td>
+                                    <td>0.964</td>
+                                    <td>0.749</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <div class="table-responsive justify-content-center">
+                        <table class="table table-sm table-hover" style="text-align: center">
+                            <caption style="text-align: center">Benchmarking Performance on MedMNIST3D.</caption>
+                            <thead class="thead-light">
+                                <tr>
+                                    <th rowspan="2">Methods</th>
+                                    <th colspan="2">OrganMNIST3D</th>
+                                    <th colspan="2">NoduleMNIST3D</th>
+                                    <th colspan="2">FractureMNIST3D</th>
+                                    <th colspan="2">AdrenalMNIST3D</th>
+                                    <th colspan="2">VesselMNIST3D</th>
+                                    <th colspan="2">SynapseMNIST3D</th>
+                                </tr>
+                                <tr>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ResNet-18 + 2.5D</td>
+                                    <td>0.977</td>
+                                    <td>0.788</td>
+                                    <td>0.885</td>
+                                    <td>0.903</td>
+                                    <td>0.587</td>
+                                    <td>0.451</td>
+                                    <td>0.718</td>
+                                    <td>0.772</td>
+                                    <td>0.748</td>
+                                    <td>0.846</td>
+                                    <td>0.634</td>
+                                    <td>0.696</td>
+                                </tr>
+                                <tr>
+                                    <td>ResNet-18 + 3D</td>
+                                    <td><b>0.996</b></td>
+                                    <td><b>0.907</b></td>
+                                    <td>0.915</td>
+                                    <td>0.908</td>
+                                    <td>0.712</td>
+                                    <td>0.508</td>
+                                    <td>0.827</td>
+                                    <td>0.721</td>
+                                    <td>0.874</td>
+                                    <td>0.877</td>
+                                    <td>0.820</td>
+                                    <td>0.745</td>
+                                </tr>
+                                <tr>
+                                    <td>ResNet-18 + ACS</td>
+                                    <td>0.994</td>
+                                    <td>0.900</td>
+                                    <td>0.888</td>
+                                    <td>0.910</td>
+                                    <td>0.714</td>
+                                    <td>0.497</td>
+                                    <td><b>0.839</b></td>
+                                    <td>0.754</td>
+                                    <td><b>0.930</b></td>
+                                    <td><b>0.928</b></td>
+                                    <td>0.705</td>
+                                    <td>0.722</td>
+                                </tr>
+                                <tr>
+                                    <td>ResNet-50 + 2.5D</td>
+                                    <td>0.974</td>
+                                    <td>0.769</td>
+                                    <td>0.861</td>
+                                    <td><b>0.911</b></td>
+                                    <td>0.552</td>
+                                    <td>0.397</td>
+                                    <td>0.732</td>
+                                    <td>0.763</td>
+                                    <td>0.751</td>
+                                    <td>0.877</td>
+                                    <td>0.669</td>
+                                    <td>0.735</td>
+                                </tr>
+                                <tr>
+                                    <td>ResNet-50 + 3D</td>
+                                    <td>0.994</td>
+                                    <td>0.883</td>
+                                    <td>0.902</td>
+                                    <td>0.910</td>
+                                    <td>0.725</td>
+                                    <td>0.494</td>
+                                    <td>0.828</td>
+                                    <td>0.745</td>
+                                    <td>0.907</td>
+                                    <td>0.918</td>
+                                    <td><b>0.851</b></td>
+                                    <td><b>0.795</b></td>
+                                </tr>
+                                <tr>
+                                    <td>ResNet-50 + ACS</td>
+                                    <td>0.994</td>
+                                    <td>0.889</td>
+                                    <td><b>0.924</b></td>
+                                    <td>0.906</td>
+                                    <td><b>0.750</b></td>
+                                    <td><b>0.517</b></td>
+                                    <td>0.828</td>
+                                    <td>0.758</td>
+                                    <td>0.912</td>
+                                    <td>0.858</td>
+                                    <td>0.719</td>
+                                    <td>0.709</td>
+                                </tr>
+                                <tr>
+                                    <td>auto-sklearn</td>
+                                    <td>0.977</td>
+                                    <td>0.814</td>
+                                    <td>0.872</td>
+                                    <td>0.926</td>
+                                    <td>0.628</td>
+                                    <td>0.453</td>
+                                    <td>0.828</td>
+                                    <td><b>0.802</b></td>
+                                    <td>0.910</td>
+                                    <td>0.915</td>
+                                    <td>0.631</td>
+                                    <td>0.730</td>
+                                </tr>
+                                <tr>
+                                    <td>AutoKeras</td>
+                                    <td>0.979</td>
+                                    <td>0.804</td>
+                                    <td>0.847</td>
+                                    <td>0.902</td>
+                                    <td>0.642</td>
+                                    <td>0.458</td>
+                                    <td>0.804</td>
+                                    <td>0.705</td>
+                                    <td>0.726</td>
+                                    <td>0.892</td>
+                                    <td>0.538</td>
+                                    <td>0.724</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
                 </div>
-
-                <div class="table-responsive justify-content-center">
-                    <table class="table table-sm table-hover" style="text-align: center">
-                        <caption style="text-align: center">Benchmarking Performance on MedMNIST Dataset</caption>
-                        <thead class="thead-light">
-                            <tr>
-                                <th rowspan="2">Methods</th>
-                                <th colspan="2">RetinaMNIST</th>
-                                <th colspan="2">BreastMNIST</th>
-                                <th colspan="2">OrganMNIST (Axial)</th>
-                                <th colspan="2">OrganMNIST (Coronal)</th>
-                                <th colspan="2">OrganMNIST (Sagittal)</th>
-                            </tr>
-                            <tr>
-                                <td>AUC</td>
-                                <td>ACC</td>
-                                <td>AUC</td>
-                                <td>ACC</td>
-                                <td>AUC</td>
-                                <td>ACC</td>
-                                <td>AUC</td>
-                                <td>ACC</td>
-                                <td>AUC</td>
-                                <td>ACC</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>ResNet-18 (28)</td>
-                                <td>0.727</td>
-                                <td>0.515</td>
-                                <td>0.897</td>
-                                <td>0.859</td>
-                                <td>0.995</td>
-                                <td>0.921</td>
-                                <td>0.990</td>
-                                <td>0.889</td>
-                                <td>0.967</td>
-                                <td>0.762</td>
-                            </tr>
-                            <tr>
-                                <td>ResNet-18 (224)</td>
-                                <td>0.721</td>
-                                <td>0.543</td>
-                                <td>0.915</td>
-                                <td><b>0.878</b></td>
-                                <td><b>0.997</b></td>
-                                <td><b>0.931</b></td>
-                                <td>0.991</td>
-                                <td>0.907</td>
-                                <td><b>0.974</b></td>
-                                <td>0.777</td>
-                            </tr>
-                            <tr>
-                                <td>ResNet-50 (28)</td>
-                                <td>0.719</td>
-                                <td>0.490</td>
-                                <td>0.879</td>
-                                <td>0.853</td>
-                                <td>0.995</td>
-                                <td>0.916</td>
-                                <td>0.990</td>
-                                <td>0.893</td>
-                                <td>0.968</td>
-                                <td>0.746</td>
-                            </tr>
-                            <tr>
-                                <td>ResNet-50 (224)</td>
-                                <td>0.717</td>
-                                <td><b>0.555</b></td>
-                                <td>0.863</td>
-                                <td>0.833</td>
-                                <td><b>0.997</b></td>
-                                <td><b>0.931</b></td>
-                                <td><b>0.992</b></td>
-                                <td>0.898</td>
-                                <td>0.970</td>
-                                <td>0.770</td>
-                            </tr>
-                            <tr>
-                                <td>auto-sklearn</td>
-                                <td>0.694</td>
-                                <td>0.525</td>
-                                <td>0.848</td>
-                                <td>0.808</td>
-                                <td>0.797</td>
-                                <td>0.563</td>
-                                <td>0.898</td>
-                                <td>0.676</td>
-                                <td>0.855</td>
-                                <td>0.601</td>
-                            </tr>
-                            <tr>
-                                <td>AutoKeras</td>
-                                <td>0.655</td>
-                                <td>0.420</td>
-                                <td>0.833</td>
-                                <td>0.801</td>
-                                <td>0.996</td>
-                                <td>0.929</td>
-                                <td><b>0.992</b></td>
-                                <td><b>0.915</b></td>
-                                <td>0.972</td>
-                                <td><b>0.803</b></td>
-                            </tr>
-                            <tr>
-                                <td>Google AutoML Vision</td>
-                                <td><b>0.762</b></td>
-                                <td>0.530</td>
-                                <td><b>0.932</b></td>
-                                <td>0.865</td>
-                                <td>0.988</td>
-                                <td>0.818</td>
-                                <td>0.986</td>
-                                <td>0.861</td>
-                                <td>0.964</td>
-                                <td>0.706</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-
             </div>
         </div>
 
+        <hr>
+
         <!-- citation -->
-        <div class="row">
-            <div class="col">
-                <h2>Citation and Licenses</h2>
-                <p style="text-align:justify; text-justify:inter-ideograph">
-                <p> If you find this project useful, please cite our paper as:</p>
+        <div>
+            <div class="row">
+                <div class="col">
+                    <h2>Citation and Licenses</h2>
+                    <p style="text-align:justify; text-justify:inter-ideograph"> If you find this project useful, please
+                        cite both v1 and v2 paper as:</p>
 
-                <blockquote class="blockquote">
-                    Jiancheng Yang, Rui Shi, Bingbing Ni. "MedMNIST Classification Decathlon: A Lightweight AutoML
-                    Benchmark for Medical Image Analysis," IEEE 18th International Symposium on Biomedical Imaging
-                    (ISBI), 2021.
-                </blockquote>
+                    <blockquote class="blockquote">
+                        <pre>  Jiancheng Yang, Rui Shi, Donglai Wei, Zequan Liu, Lin Zhao, Bilian Ke, Hanspeter Pfister, Bingbing Ni. "MedMNIST v2: A Large-Scale Lightweight Benchmark for 2D and 3D Biomedical Image Classification". arXiv preprint arXiv:2008.#TODO, 2021.
 
-                <p>or using bibtex:</p>
-                <blockquote class="blockquote">
-                    <pre>@inproceedings{medmnistv1,
+  Jiancheng Yang, Rui Shi, Bingbing Ni. "MedMNIST Classification Decathlon: A Lightweight AutoML Benchmark for Medical Image Analysis". IEEE 18th International Symposium on Biomedical Imaging (ISBI), 2021.</pre>
+                    </blockquote>
+
+                    <p>or using bibtex:</p>
+                    <blockquote class="blockquote">
+                        <pre>@article{medmnistv2,
+    title={MedMNIST v2: A Large-Scale Lightweight Benchmark for 2D and 3D Biomedical Image Classification},
+    author={Yang, Jiancheng and Shi, Rui and Wei, Donglai and Liu, Zequan and Zhao, Lin and Ke, Bilian and Pfister, Hanspeter and Ni, Bingbing},
+    journal={arXiv preprint arXiv:2008.#TODO},
+    year={2021}
+}
+
+@inproceedings{medmnistv1,
     title={MedMNIST Classification Decathlon: A Lightweight AutoML Benchmark for Medical Image Analysis},
     author={Yang, Jiancheng and Shi, Rui and Ni, Bingbing},
     booktitle={IEEE 18th International Symposium on Biomedical Imaging (ISBI)},
     pages={191--195},
     year={2021}
 }</pre>
-                </blockquote>
-                <p>
-                    Besides, please cite the corresponding paper if you use any subset of MedMNIST.
-                    Each subset uses the <b>same license</b> as that of the source dataset.
-                </p>
+                    </blockquote>
+                    <p style="text-align:justify; text-justify:inter-ideograph">
+                        Each subset keeps the <b>same license</b> as that of the source dataset.
+                        Please also cite the corresponding paper of source data if you use any subset of MedMNIST.
+                    </p>
 
-                <div v-for="reference in references">
-                    <h5><b>{{reference.dataset}}</b></h5>
-                    <small>
-                        <i style="text-align:justify; text-justify:inter-ideograph">
-                            <b>License:</b>
-                            <a v-bind:href="reference.licenseURL" target="_blank"> {{reference.license}}</a>
-                        </i>
-                    </small>
-                    <blockquote class="blockquote" v-for="citation in reference.citations">{{citation}}</blockquote>
                 </div>
             </div>
+
         </div>
 
+        <hr>
+
         <!-- footer -->
-        <p align="center">
-            Copyright © {{site.year}}
-            <span class="d-block d-sm-none"></span>
-            {{site.copyright}}
-        </p>
-        <p align="center">
-            <small>
-                This website is hosted on <a v-bind:href="site.url" target="_blank">GitHub</a>.
-                Updated on {{site.lastUpdated}}.
-            </small>
-        </p>
+        <div>
+            <p align="center">
+                Copyright © {{site.year}}
+                <span class="d-block d-sm-none"></span>
+                {{site.copyright}}
+            </p>
+            <p align="center">
+                <small>
+                    This website is hosted on <a v-bind:href="site.url" target="_blank">GitHub</a>.
+                    Updated on {{site.lastUpdated}}.
+                </small>
+            </p>
+        </div>
+
 
     </div>
 
 
-    <script src="assets/v1/data.js"></script>
-    <script src="assets/v1/app.js"></script>
+    <script src="assets/v2/data.js"></script>
+    <script src="assets/v2/app.js"></script>
 
 </body>
 
