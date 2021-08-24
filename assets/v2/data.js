@@ -42,7 +42,7 @@ const about = {
         "Shanghai Jiao Tong University, Shanghai, China",
         "Harvard University, Cambridge, MA",
         "RWTH Aachen University, Aachen, Germany",
-        "Zhongshan Hospital Affiliated to Fudan University, Shanghai, China",
+        "Fudan Institute of Metabolic Diseases, Zhongshan Hospital, Fudan University, Shanghai, China",
         "Shanghai General Hospital, Shanghai Jiao Tong University School of Medicine, Shanghai, China"
     ],
     materials: [
