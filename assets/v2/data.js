@@ -40,10 +40,11 @@ const about = {
     ],
     affiliations: [
         "Shanghai Jiao Tong University, Shanghai, China",
-        "Harvard University, Cambridge, MA",
+        "Boston College, Chestnut Hill, MA",
         "RWTH Aachen University, Aachen, Germany",
         "Fudan Institute of Metabolic Diseases, Zhongshan Hospital, Fudan University, Shanghai, China",
-        "Shanghai General Hospital, Shanghai Jiao Tong University School of Medicine, Shanghai, China"
+        "Shanghai General Hospital, Shanghai Jiao Tong University School of Medicine, Shanghai, China",
+        "Harvard University, Cambridge, MA"
     ],
     materials: [
         {
