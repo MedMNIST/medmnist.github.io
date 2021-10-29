@@ -2,7 +2,7 @@ const site = {
     copyright: "MedMNIST Team",
     year: "2020-",
     url: "https://github.com/MedMNIST/medmnist.github.io",
-    lastUpdated: "Aug, 2021",
+    lastUpdated: "Oct, 2021",
 };
 
 const about = {
@@ -50,7 +50,7 @@ const about = {
         {
             name: "Paper",
             where: "arXiv",
-            href: "#TODO"
+            href: "https://arxiv.org/abs/2110.14795"
         },
         {
             name: "Code",
