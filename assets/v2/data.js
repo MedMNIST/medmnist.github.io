@@ -90,8 +90,8 @@ const medmnist2d = [
         task: "Multi-Label (14) Binary-Class (2)",
         samples: "112,120",
         splits: "78,468 / 11,219 / 22,433",
-        license: "CC0 1.0",
-        licenseURL: "https://creativecommons.org/publicdomain/zero/1.0/",
+        license: "CC BY 4.0",
+        licenseURL: "https://creativecommons.org/licenses/by/4.0/",
         citations: [
             'Xiaosong Wang, Yifan Peng, et al., "Chest x-ray8: Hospital-scale chest x-ray database and benchmarks on weakly-supervised classification and localization of common thorax diseases," in CVPR, 2017, pp. 3462–3471.'
         ]
@@ -102,8 +102,8 @@ const medmnist2d = [
         task: "Multi-Class (7)",
         samples: "10,015",
         splits: "7,007 / 1,003 / 2,005",
-        license: "CC BY-NC 4.0",
-        licenseURL: "https://creativecommons.org/licenses/by-nc/4.0/",
+        license: "CC BY 4.0",
+        licenseURL: "https://creativecommons.org/licenses/by/4.0/",
         citations: [
             'Philipp Tschandl, Cliff Rosendahl, et al., "The ham10000 dataset, a large collection of multisource dermatoscopic images of common pigmented skin lesions," Scientific data, vol. 5, pp. 180161, 2018.',
             'Noel Codella, Veronica Rotemberg, et al., “Skin Lesion Analysis Toward Melanoma Detection 2018: A Challenge Hosted by the International Skin Imaging Collaboration (ISIC)”, 2018, arXiv:1902.03368.'
@@ -175,8 +175,8 @@ const medmnist2d = [
         task: "Multi-Class (8)",
         samples: "236,386",
         splits: "165,466 / 23,640 / 47,280",
-        license: "CC BY 3.0",
-        licenseURL: "https://creativecommons.org/licenses/by/3.0/",
+        license: "CC BY 4.0",
+        licenseURL: "https://creativecommons.org/licenses/by/4.0/",
         citations: [
             'Vebjorn Ljosa, Katherine L Sokolnicki, et al., “Annotated high-throughput microscopy imagesets for validation.,” Nature methods, vol. 9, no. 7, pp.637–637, 2012.'
         ]
@@ -242,8 +242,8 @@ const medmnist3d = [
         task: "Binary-Class (2)",
         samples: "1,849",
         splits: "1,158 / 165 / 526",
-        license: "CC BY 3.0",
-        licenseURL: "https://creativecommons.org/licenses/by/3.0/",
+        license: "CC BY 4.0",
+        licenseURL: "https://creativecommons.org/licenses/by/4.0/",
         citations: [
             'Samuel G. Armato III, Geoffrey McLennan, et al., “The lung image database consortium (lidc) and image database resource initiative (idri): A completed reference databaseof lung nodules on ct scans,” Medical Physics, vol. 38,no. 2, pp. 915–931, 2011.'
         ]
@@ -266,8 +266,8 @@ const medmnist3d = [
         task: "Multi-Class (3)",
         samples: "1,370",
         splits: "1,027 / 103 / 240",
-        license: "CC BY-NC 4.0",
-        licenseURL: "https://creativecommons.org/licenses/by-nc/4.0/",
+        license: "CC BY 4.0",
+        licenseURL: "https://creativecommons.org/licenses/by/4.0/",
         citations: [
             'Liang Jin, Jiancheng Yang, et al., “Deep-learning-assisted detection and segmentation of rib fractures from ct scans: Development and validation of fracnet,” EBioMedicine, vol. 62, pp. 103106, 2020.'
         ]
@@ -278,8 +278,8 @@ const medmnist3d = [
         task: "Binary-Class (2)",
         samples: "1,909",
         splits: "1,335 / 192 / 382",
-        license: "CC0 1.0",
-        licenseURL: "https://creativecommons.org/publicdomain/zero/1.0/",
+        license: "CC BY 4.0",
+        licenseURL: "https://creativecommons.org/licenses/by/4.0/",
         citations: [
             'Xi Yang, Ding Xia, et al., “Intra: 3d intracranial aneurysm dataset for deep learning,” inProceedings of the IEEE/CVF Conference onComputer Vision and Pattern Recognition (CVPR), June 2020.'
         ]

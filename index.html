@@ -104,21 +104,16 @@
                     <h2>Key Features</h2>
                     <ul>
                         <li style="text-align:justify; text-justify:inter-ideograph">
-                            <b>Educational</b>: Our multi-modal data, from multiple open medical image datasets with
-                            Creative Commons (CC) Licenses, is easy to use for educational purpose.
+                            <b><i>Diverse</i></b>: It covers diverse data modalities, dataset scales (from 100 to 100,000), and tasks (binary/multi-class, multi-label, and ordinal regression). It is as diverse as the VDD and MSD to fairly evaluate the generalizable performance of machine learning algorithms in different settings, but both 2D and 3D biomedical images are provided.
                         </li>
                         <li style="text-align:justify; text-justify:inter-ideograph">
-                            <b>Standardized</b>: Data is pre-processed into same format, which requires no background
-                            knowledge for users.
+                            <b><i>Standardized</i></b>: Each sub-dataset is pre-processed into the same format, which requires no background knowledge for users. As an MNIST-like dataset collection to perform classification tasks on small images, it primarily focuses on the machine learning part rather than the end-to-end system. Furthermore, we provide standard train-validation-test splits for all datasets in MedMNIST v2, therefore algorithms could be easily compared.
                         </li>
                         <li style="text-align:justify; text-justify:inter-ideograph">
-                            <b>Diverse</b>: The multi-modal datasets covers diverse data scales (from 100 to 100,000)
-                            and
-                            tasks (binary/multiclass, ordinal regression and multi-label).
+                            <b><i>Lightweight</i></b>: The small size of 28×28 (2D) or 28×28×28 (3D) is friendly to evaluate machine learning algorithms.
                         </li>
                         <li style="text-align:justify; text-justify:inter-ideograph">
-                            <b>Lightweight</b>: The small size is friendly for rapid prototyping and
-                            experimenting multi-modal machine learning and AutoML algorithms.
+                            <b><i>Educational</i></b>: As an interdisciplinary research area, biomedical image analysis is difficult to hand on for researchers from other communities, as it requires background knowledge from computer vision, machine learning, biomedical imaging, and clinical science. Our data with the Creative Commons (CC) License is easy to use for educational purposes.
                         </li>
 
                     </ul>
@@ -898,9 +893,10 @@
         <div>
             <div class="row">
                 <div class="col">
-                    <h2>Citation and Licenses</h2>
-                    <p style="text-align:justify; text-justify:inter-ideograph"> If you find this project useful, please
-                        cite:</p>
+                    <h2>Citation</h2>
+                    <p style="text-align:justify; text-justify:inter-ideograph">
+                        If you find this project useful, please cite:
+                    </p>
 
                     <blockquote class="blockquote">
                         <pre>  Jiancheng Yang, Rui Shi, Donglai Wei, Zequan Liu, Lin Zhao, Bilian Ke, Hanspeter Pfister, Bingbing Ni. "MedMNIST v2: A Large-Scale Lightweight Benchmark for 2D and 3D Biomedical Image Classification". arXiv preprint arXiv:2110.14795, 2021.
@@ -926,10 +922,31 @@
 }</pre>
                     </blockquote>
                     <p style="text-align:justify; text-justify:inter-ideograph">
-                        Each subset keeps the <b>same license</b> as that of the source dataset.
+
+                        <br>
                         Please also cite the corresponding paper of source data if you use any subset of MedMNIST.
                     </p>
 
+                </div>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <!-- License -->
+        <div>
+            <div class="row">
+                <div class="col">
+                    <h2>License</h2>
+                    <p style="text-align:justify; text-justify:inter-ideograph">
+                        The dataset is licensed under <i>Creative Commons Attribution 4.0 International</i> (<a
+                            href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>).
+                    </p>
+                    <p style="text-align:justify; text-justify:inter-ideograph">
+                        The code is under <a href="https://github.com/MedMNIST/MedMNIST/blob/main/LICENSE"
+                            target="_blank">Apache-2.0 License</a>.
+                    </p>
                 </div>
             </div>
 
