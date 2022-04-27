@@ -60,7 +60,7 @@ const about = {
         {
             name: "Dataset",
             where: "Zenodo",
-            href: "https://doi.org/10.5281/zenodo.5208230"
+            href: "https://doi.org/10.5281/zenodo.6496656"
         },
         {
             name: "MedMNIST v1",
@@ -240,8 +240,8 @@ const medmnist3d = [
         dataset: "NoduleMNIST3D",
         modality: "Chest CT",
         task: "Binary-Class (2)",
-        samples: "1,849",
-        splits: "1,158 / 165 / 526",
+        samples: "1,633",
+        splits: "1,158 / 165 / 310",
         license: "CC BY 4.0",
         licenseURL: "https://creativecommons.org/licenses/by/4.0/",
         citations: [
