@@ -2,7 +2,7 @@ const site = {
     copyright: "MedMNIST Team",
     year: "2020-",
     url: "https://github.com/MedMNIST/medmnist.github.io",
-    lastUpdated: "Oct, 2021",
+    lastUpdated: "Apr, 2022",
 };
 
 const about = {
