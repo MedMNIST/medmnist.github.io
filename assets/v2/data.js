@@ -48,7 +48,12 @@ const about = {
     ],
     materials: [
         {
-            name: "Paper",
+            name: "Publication",
+            where: "Scientific Data",
+            href: "#TODO"
+        },
+        {
+            name: "Preprint",
             where: "arXiv",
             href: "https://arxiv.org/abs/2110.14795"
         },
