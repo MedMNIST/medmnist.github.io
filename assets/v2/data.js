@@ -1,8 +1,8 @@
 const site = {
     copyright: "MedMNIST Team",
-    year: "2020-",
+    year: "2020-2023",
     url: "https://github.com/MedMNIST/medmnist.github.io",
-    lastUpdated: "Apr, 2022",
+    lastUpdated: "Jan, 2023",
 };
 
 const about = {
@@ -50,7 +50,7 @@ const about = {
         {
             name: "Publication",
             where: "Scientific Data",
-            href: "#TODO"
+            href: "https://doi.org/10.1038/s41597-022-01721-8"
         },
         {
             name: "Preprint",
