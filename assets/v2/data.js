@@ -1,12 +1,14 @@
 const site = {
-    copyright: "MedMNIST Team",
     year: "2020-2023",
-    url: "https://github.com/MedMNIST/medmnist.github.io",
+    siteURL: "https://medmnist.com/",
+    repoURL: "https://github.com/MedMNIST/medmnist.github.io",
+    creator: "Jiancheng Yang",
+    creatorURL: "https://jiancheng-yang.com/",
     lastUpdated: "Jan, 2023",
 };
 
 const about = {
-    title: "MedMNIST v2: A Large-Scale Lightweight Benchmark for 2D and 3D Biomedical Image Classification",
+    title: "MedMNIST v2 - A large-scale lightweight benchmark for 2D and 3D biomedical image classification",
     authors: [
         {
             name: "Jiancheng Yang",

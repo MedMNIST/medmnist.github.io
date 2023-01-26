@@ -911,18 +911,22 @@
                     </p>
 
                     <blockquote class="blockquote">
-                        <pre>  Jiancheng Yang, Rui Shi, Donglai Wei, Zequan Liu, Lin Zhao, Bilian Ke, Hanspeter Pfister, Bingbing Ni. "MedMNIST v2: A Large-Scale Lightweight Benchmark for 2D and 3D Biomedical Image Classification". arXiv preprint arXiv:2110.14795, 2021.
-
+                        <pre>  Jiancheng Yang, Rui Shi, Donglai Wei, Zequan Liu, Lin Zhao, Bilian Ke, Hanspeter Pfister, Bingbing Ni. Yang, Jiancheng, et al. "MedMNIST v2-A large-scale lightweight benchmark for 2D and 3D biomedical image classification." Scientific Data, 2023.
+                            
   Jiancheng Yang, Rui Shi, Bingbing Ni. "MedMNIST Classification Decathlon: A Lightweight AutoML Benchmark for Medical Image Analysis". IEEE 18th International Symposium on Biomedical Imaging (ISBI), 2021.</pre>
                     </blockquote>
 
                     <p>or using bibtex:</p>
                     <blockquote class="blockquote">
                         <pre>@article{medmnistv2,
-    title={MedMNIST v2: A Large-Scale Lightweight Benchmark for 2D and 3D Biomedical Image Classification},
+    title={MedMNIST v2-A large-scale lightweight benchmark for 2D and 3D biomedical image classification},
     author={Yang, Jiancheng and Shi, Rui and Wei, Donglai and Liu, Zequan and Zhao, Lin and Ke, Bilian and Pfister, Hanspeter and Ni, Bingbing},
-    journal={arXiv preprint arXiv:2110.14795},
-    year={2021}
+    journal={Scientific Data},
+    volume={10},
+    number={1},
+    pages={41},
+    year={2023},
+    publisher={Nature Publishing Group UK London}
 }
 
 @inproceedings{medmnistv1,
@@ -934,7 +938,7 @@
 }</pre>
                     </blockquote>
                     <p style="text-align:justify; text-justify:inter-ideograph">
-                        Please also cite the corresponding paper(s) of source data if you use any subset of MedMNIST (<a
+                        Please also cite the corresponding paper(s) of source data if you use any subset of MedMNIST (check this <a
                             href="./assets/v2/medmnist.bib" target="_blank">bibtex</a>).
                     </p>
 
@@ -970,11 +974,17 @@
             <p align="center">
                 Copyright © {{site.year}}
                 <span class="d-block d-sm-none"></span>
-                {{site.copyright}}
+                MedMNIST Team
             </p>
             <p align="center">
                 <small>
-                    This website is hosted on <a v-bind:href="site.url" target="_blank">GitHub</a>.
+                    This 
+                    <a v-bind:href="site.siteURL" target="_blank">website</a>
+                    created by 
+                    <a v-bind:href="site.creatorURL" target="_blank">{{site.creator}}</a>
+                    is hosted on 
+                    <a v-bind:href="site.repoURL" target="_blank">GitHub</a>. 
+
                     Updated on {{site.lastUpdated}}.
                 </small>
             </p>
