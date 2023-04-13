@@ -34,7 +34,12 @@
             <div class="col"></div>
         </div>
         <script>
+            const shuffle = function (array) {
+                return array.sort(() => Math.random() - 0.5);
+            }
+
             const generateStrings = (datasets) => {
+                shuffle(datasets);
                 const strings = [];
                 for (const dataset of datasets) {
                     strings.push(`>>> from medmnist import ${dataset}<br>>>> dataset = ${dataset}(split="train", download=True)`);
