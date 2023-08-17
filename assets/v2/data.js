@@ -109,8 +109,8 @@ const medmnist2d = [
         task: "Multi-Class (7)",
         samples: "10,015",
         splits: "7,007 / 1,003 / 2,005",
-        license: "CC BY 4.0",
-        licenseURL: "https://creativecommons.org/licenses/by/4.0/",
+        license: "CC BY-NC 4.0",
+        licenseURL: "https://creativecommons.org/licenses/by-nc/4.0/",
         citations: [
             'Philipp Tschandl, Cliff Rosendahl, et al., "The ham10000 dataset, a large collection of multisource dermatoscopic images of common pigmented skin lesions," Scientific data, vol. 5, pp. 180161, 2018.',
             'Noel Codella, Veronica Rotemberg, et al., “Skin Lesion Analysis Toward Melanoma Detection 2018: A Challenge Hosted by the International Skin Imaging Collaboration (ISIC)”, 2018, arXiv:1902.03368.'
