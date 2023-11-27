@@ -17,75 +17,13 @@
 
 <body>
 
+    <!-- 
+    <div class="container">
 
-    <div class="container" id="code">
 
 
-        <div class="row">
-            <div class="col"></div>
-            <div class="col d-none d-md-block">
-                <br> <br>
-                <code class="bash">
-                    <span id="typed-text-1"></span>
-                    <br>
-                    <span id="typed-text-2"></span>
-                </code>
-            </div>
-            <div class="col"></div>
-        </div>
-        <script>
-            const shuffle = function (array) {
-                return array.sort(() => Math.random() - 0.5);
-            }
-
-            const generateStrings = (datasets) => {
-                datasets = shuffle(datasets);
-                console.log(datasets);
-                const strings = [];
-                for (const dataset of datasets) {
-                    strings.push(`>>> from medmnist import ${dataset}<br>>>> dataset = ${dataset}(split="train", download=True)`);
-                    strings.push(`>>> from medmnist import ${dataset}<br>>>> dataset = ${dataset}(split="val", download=True)`);
-                    strings.push(`>>> from medmnist import ${dataset}<br>>>> dataset = ${dataset}(split="test", download=True)`);
-                }
-                return strings;
-            };
-            new Typed('#typed-text-1', {
-                strings: ['% pip install medmnist<br>% python'],
-                typeSpeed: 50,
-                showCursor: true,
-                onComplete:
-                    function (self) {
-                        self.cursor.remove();
-                        new Typed('#typed-text-2', {
-                            strings: generateStrings([
-                                'PathMNIST',
-                                "ChestMNIST",
-                                "DermaMNIST",
-                                "OCTMNIST",
-                                "PneumoniaMNIST",
-                                "RetinaMNIST",
-                                "BreastMNIST",
-                                "BloodMNIST",
-                                "TissueMNIST",
-                                "OrganAMNIST",
-                                "OrganCMNIST",
-                                "OrganSMNIST",
-                                "OrganMNIST3D",
-                                "NoduleMNIST3D",
-                                "AdrenalMNIST3D",
-                                "FractureMNIST3D",
-                                "VesselMNIST3D",
-                                "SynapseMNIST3D"
-                            ]),
-                            typeSpeed: 20,
-                            showCursor: true,
-                            loop: true,
-                            loopCount: Infinity,
-                        });
-                    },
-            });
-        </script>
-    </div>
+        
+    </div> -->
 
     <div class="container" id="app">
 
@@ -96,7 +34,10 @@
 
                     <br> <br>
 
-                    <h1 align="center"><b>{{about.title}}</b></h1>
+                    <!-- <h1 align="center">{{about.title}}</h1> -->
+
+                    <h1 align="center"><b>MedMNIST</b></h1>
+                    <h2 align="center">18 MNIST-like Datasets for 2D and 3D Biomedical Image Classification</h2>
 
                     <br> <br>
 
@@ -116,6 +57,8 @@
                     </h5>
 
                     <br> <br>
+
+
 
                     <h2 align="center">
                         <ul class="list-inline">
@@ -399,135 +342,6 @@
         </div>
 
         <hr>
-        <!-- <div>
-            <div class="row">
-                <div class="col">
-                    <h2>Materials</h2>
-
-
-                    <div class="table-responsive justify-content-center">
-
-                        <table class="table table-hover" style="text-align: center">
-                            <caption style="text-align: center">An Overview of MedMNIST v2 Dataset. MC: Multi-Class. BC:
-                                Binary-Class. ML: Multi-Label. OR: Ordinal Regression.</caption>
-                            <thead class="thead-light">
-                                <tr>
-                                    <th>MedMNIST2D</th>
-                                    <th>Data Modality</th>
-                                    <th>Tasks (# Classes/Labels)</th>
-                                    <th># Samples</th>
-                                    <th># Training / Validation / Test</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>DermaMNIST</td>
-                                    <td>Dermatoscope</td>
-                                    <td>MC (7)</td>
-                                    <td>10,015</td>
-                                    <td>7,007 / 1,003 / 2,005</td>
-                                </tr>
-                                <tr>
-                                    <td>OCTMNIST</td>
-                                    <td>Retinal OCT</td>
-                                    <td>MC (4)</td>
-                                    <td>109,309</td>
-                                    <td>97,477 / 10,832 / 1,000</td>
-                                </tr>
-                                <tr>
-                                    <td>PneumoniaMNIST</td>
-                                    <td>Chest X-ray</td>
-                                    <td>BC (2)</td>
-                                    <td>5,856</td>
-                                    <td>4,708 / 524 / 624</td>
-                                </tr>
-                                <tr>
-                                    <td>RetinaMNIST</td>
-                                    <td>Fundus Camera</td>
-                                    <td>OR (5)</td>
-                                    <td>1,600</td>
-                                    <td>1,080 / 120 / 400</td>
-                                </tr>
-                                <tr>
-                                    <td>BreastMNIST</td>
-                                    <td>Breast Ultrasound</td>
-                                    <td>BC (2)</td>
-                                    <td>780</td>
-                                    <td>546 / 78 / 156</td>
-                                </tr>
-                                <tr>
-                                    <td>BloodMNIST</td>
-                                    <td>Blood Cell Microscope</td>
-                                    <td>MC (8)</td>
-                                    <td>17,092</td>
-                                    <td>11,959 / 1,712 / 3,421</td>
-                                </tr>
-                                <tr>
-                                    <td>TissueMNIST</td>
-                                    <td>Kidney Cortex Microscope</td>
-                                    <td>MC (8)</td>
-                                    <td>236,386</td>
-                                    <td>165,466 / 23,640 / 47,280</td>
-                                </tr>
-                                <tr>
-                                    <td>OrganAMNIST</td>
-                                    <td>Abdominal CT</td>
-                                    <td>MC (11)</td>
-                                    <td>58,850</td>
-                                    <td>34,581 / 6,491 / 17,778</td>
-                                </tr>
-                                <tr>
-                                    <td>OragnCMNIST</td>
-                                    <td>Abdominal CT</td>
-                                    <td>MC (11)</td>
-                                    <td>23,660</td>
-                                    <td>13,000 / 2,392 / 8,268</td>
-                                </tr>
-                                <tr>
-                                    <td>OrganSMNIST</td>
-                                    <td>Abdominal CT</td>
-                                    <td>MC (11)</td>
-                                    <td>25,221</td>
-                                    <td>13,940 / 2,452 / 8,829</td>
-                                </tr>
-
-
-                                <tr>
-                                    <td>AdrenalMNIST3D</td>
-                                    <td>Shape from Abdominal CT</td>
-                                    <td>BC (2)</td>
-                                    <td>1,584</td>
-                                    <td>1,188 / 98 / 298</td>
-                                </tr>
-                                <tr>
-                                    <td>FractureMNIST3D</td>
-                                    <td>Chest CT</td>
-                                    <td>MC (3)</td>
-                                    <td>1,370</td>
-                                    <td>1,027 / 103 / 240</td>
-                                </tr>
-                                <tr>
-                                    <td>VesselMNIST3D</td>
-                                    <td>Shape from Brain MRA</td>
-                                    <td>BC (2)</td>
-                                    <td>1,909</td>
-                                    <td>1,335 / 192 / 382</td>
-                                </tr>
-                                <tr>
-                                    <td>SynapseMNIST3D</td>
-                                    <td>Electron Microscope</td>
-                                    <td>BC (2)</td>
-                                    <td>1,759</td>
-                                    <td>1,230 / 177 / 352</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                    </div>
-
-                </div>
-            </div>
-        </div> -->
 
         <!-- results -->
         <div>
@@ -1019,6 +833,23 @@
 
         <hr>
 
+        <!-- usage -->
+        <div>
+            <div class="row" id="code">
+                <!-- <div class="col d-none d-md-block"> -->
+                <div class="col-12">
+                    <h2>Python Usage</h2>
+                    <code class="bash">
+                        <span id="typed-text-1"></span>
+                        <br>
+                        <span id="typed-text-2"></span>
+                    </code>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
         <!-- License -->
         <div>
             <div class="row">
@@ -1028,7 +859,7 @@
                         The MedMNIST dataset is licensed under <i>Creative Commons Attribution 4.0 International</i> (<a
                             href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>), except
                         DermaMNIST under Creative Commons Attribution-NonCommercial 4.0 International (<a
-                        href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>).
+                            href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>).
                     </p>
                     <p style="text-align:justify; text-justify:inter-ideograph">
                         The code is under <a href="https://github.com/MedMNIST/MedMNIST/blob/main/LICENSE"
@@ -1068,6 +899,59 @@
 
     <script src="assets/v2/data.js"></script>
     <script src="assets/v2/app.js"></script>
+
+    <script>
+        const shuffle = function (array) {
+            return array.sort(() => Math.random() - 0.5);
+        }
+
+        const generateStrings = (datasets) => {
+            datasets = shuffle(datasets);
+            console.log(datasets);
+            const strings = [];
+            for (const dataset of datasets) {
+                strings.push(`>>> from medmnist import ${dataset}<br>>>> dataset = ${dataset}(split="train", download=True)`);
+                strings.push(`>>> from medmnist import ${dataset}<br>>>> dataset = ${dataset}(split="val", download=True)`);
+                strings.push(`>>> from medmnist import ${dataset}<br>>>> dataset = ${dataset}(split="test", download=True)`);
+            }
+            return strings;
+        };
+        new Typed('#typed-text-1', {
+            strings: ['% pip install medmnist<br>% python'],
+            typeSpeed: 50,
+            showCursor: true,
+            onComplete:
+                function (self) {
+                    self.cursor.remove();
+                    new Typed('#typed-text-2', {
+                        strings: generateStrings([
+                            'PathMNIST',
+                            "ChestMNIST",
+                            "DermaMNIST",
+                            "OCTMNIST",
+                            "PneumoniaMNIST",
+                            "RetinaMNIST",
+                            "BreastMNIST",
+                            "BloodMNIST",
+                            "TissueMNIST",
+                            "OrganAMNIST",
+                            "OrganCMNIST",
+                            "OrganSMNIST",
+                            "OrganMNIST3D",
+                            "NoduleMNIST3D",
+                            "AdrenalMNIST3D",
+                            "FractureMNIST3D",
+                            "VesselMNIST3D",
+                            "SynapseMNIST3D"
+                        ]),
+                        typeSpeed: 20,
+                        showCursor: true,
+                        loop: true,
+                        loopCount: Infinity,
+                    });
+                },
+        });
+    </script>
 
 </body>
 
