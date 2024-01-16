@@ -67,7 +67,7 @@ const about = {
         {
             name: "Dataset",
             where: "Zenodo",
-            href: "https://doi.org/10.5281/zenodo.6496656"
+            href: "https://doi.org/10.5281/zenodo.10519195"
         },
         {
             name: "MedMNIST v1",
