@@ -1,14 +1,14 @@
 const site = {
-    year: "2020-2023",
+    year: "2020-2024",
     siteURL: "https://medmnist.com/",
     repoURL: "https://github.com/MedMNIST/medmnist.github.io",
     creator: "Jiancheng Yang",
     creatorURL: "https://jiancheng-yang.com/",
-    lastUpdated: "Jan, 2023",
+    lastUpdated: "Jan, 2024",
 };
 
 const about = {
-    title: "MedMNIST v2 - A large-scale lightweight benchmark for 2D and 3D biomedical image classification",
+    // title: "MedMNIST v2 - A large-scale lightweight benchmark for 2D and 3D biomedical image classification",
     authors: [
         {
             name: "Jiancheng Yang",
@@ -93,7 +93,7 @@ const medmnist2d = [
     },
     {
         dataset: "ChestMNIST",
-        modality: "Chest X-ray",
+        modality: "Chest X-Ray",
         task: "Multi-Label (14) Binary-Class (2)",
         samples: "112,120",
         splits: "78,468 / 11,219 / 22,433",
@@ -192,8 +192,8 @@ const medmnist2d = [
         dataset: "OrganAMNIST",
         modality: "Abdominal CT",
         task: "Multi-Class (11)",
-        samples: "58,850",
-        splits: "34,581 / 6,491 / 17,778",
+        samples: "58,830",
+        splits: "34,561 / 6,491 / 17,778",
         license: "CC BY 4.0",
         licenseURL: "https://creativecommons.org/licenses/by/4.0/",
         citations: [
@@ -205,8 +205,8 @@ const medmnist2d = [
         dataset: "OrganCMNIST",
         modality: "Abdominal CT",
         task: "Multi-Class (11)",
-        samples: "23,660",
-        splits: "13,000 / 2,392 / 8,268",
+        samples: "23,583",
+        splits: "12,975 / 2,392 / 8,216",
         license: "CC BY 4.0",
         licenseURL: "https://creativecommons.org/licenses/by/4.0/",
         citations: [
@@ -218,8 +218,8 @@ const medmnist2d = [
         dataset: "OrganSMNIST",
         modality: "Abdominal CT",
         task: "Multi-Class (11)",
-        samples: "25,221",
-        splits: "13,940 / 2,452 / 8,829",
+        samples: "25,211",
+        splits: "13,932 / 2,452 / 8,827",
         license: "CC BY 4.0",
         licenseURL: "https://creativecommons.org/licenses/by/4.0/",
         citations: [
@@ -234,8 +234,8 @@ const medmnist3d = [
         dataset: "OrganMNIST3D",
         modality: "Abdominal CT",
         task: "Multi-Class (11)",
-        samples: "1,743",
-        splits: "972 / 161 / 610",
+        samples: "1,742",
+        splits: "971 / 161 / 610",
         license: "CC BY 4.0",
         licenseURL: "https://creativecommons.org/licenses/by/4.0/",
         citations: [
@@ -283,8 +283,8 @@ const medmnist3d = [
         dataset: "VesselMNIST3D",
         modality: "Shape from Brain MRA",
         task: "Binary-Class (2)",
-        samples: "1,909",
-        splits: "1,335 / 192 / 382",
+        samples: "1,908",
+        splits: "1,335 / 191 / 382",
         license: "CC BY 4.0",
         licenseURL: "https://creativecommons.org/licenses/by/4.0/",
         citations: [

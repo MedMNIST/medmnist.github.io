@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description"
-        content="MedMNIST v2: A Large-Scale Lightweight Benchmark for 2D and 3D Biomedical Image Classification">
+        content="MedMNIST: 18x Standardized Datasets for 2D and 3D Biomedical Image Classification">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="vender/bootstrap.min.css" rel="stylesheet">
     <script src="vender/vue.min.js"></script>
@@ -16,14 +16,6 @@
 </head>
 
 <body>
-
-    <!-- 
-    <div class="container">
-
-
-
-        
-    </div> -->
 
     <div class="container" id="app">
 
@@ -37,7 +29,8 @@
                     <!-- <h1 align="center">{{about.title}}</h1> -->
 
                     <h1 align="center"><b>MedMNIST</b></h1>
-                    <h2 align="center">18 MNIST-like Datasets for 2D and 3D Biomedical Image Classification</h2>
+                    <h2 align="center">18x Standardized Datasets for 2D and 3D Biomedical Image Classification</h2>
+                    <!-- <h2 align="center">with Multiple Size Options: 28 (MNIST-Like), 64, 128, and 224</h2> -->
 
                     <br> <br>
 
@@ -91,19 +84,27 @@
                 <div class="col">
                     <h2>Abstract</h2>
                     <p style="text-align:justify; text-justify:inter-ideograph">
-                        We introduce MedMNIST v2, a large-scale MNIST-like collection of standardized biomedical images,
+                        We introduce MedMNIST, a large-scale MNIST-like collection of standardized biomedical images,
                         including 12 datasets for 2D and 6 datasets for 3D.
-                        All images are pre-processed into 28 x 28 (2D) or 28 x 28 x 28 (3D) with the corresponding
+                        All images are pre-processed into 28x28 (2D) or 28x28x28 (3D) with the corresponding
                         classification labels, so that no background knowledge is required for users.
                         Covering primary data modalities in biomedical images,
-                        MedMNIST v2 is designed to perform classification on lightweight 2D and 3D images
+                        MedMNIST is designed to perform classification on lightweight 2D and 3D images
                         with various data scales (from 100 to 100,000) and diverse tasks (binary/multi-class,
                         ordinal regression and multi-label). The resulting dataset,
-                        consisting of 708,069 2D images and 9,998 3D images in total,
-                        could support numerous research / educational purposes in biomedical image analysis,
-                        computer vision and machine learning. We benchmark several baseline methods on MedMNIST v2,
+                        consisting of approximately 708K 2D images and 10K 3D images in total,
+                        could support numerous research and educational purposes in biomedical image analysis,
+                        computer vision and machine learning. We benchmark several baseline methods on MedMNIST,
                         including 2D / 3D neural networks and open-source / commercial AutoML tools.
                     </p>
+                    <!-- <p style="text-align:justify; text-justify:inter-ideograph">
+                        <b>Update:</b> We are thrilled to release MedMNIST with larger sizes: 64x64, 128x128, and
+                        224x224 for 2D,
+                        and 64x64x64 for 3D. As a complement to the previous 28-size MedMNIST, the large-size version
+                        could
+                        serve as a standardized benchmark for medical foundation models.
+                        Check the details <a href="#TODO">here</a>.
+                    </p> -->
                 </div>
             </div>
         </div>
@@ -128,11 +129,15 @@
                             requires no background knowledge for users. As an MNIST-like dataset collection to perform
                             classification tasks on small images, it primarily focuses on the machine learning part
                             rather than the end-to-end system. Furthermore, we provide standard train-validation-test
-                            splits for all datasets in MedMNIST v2, therefore algorithms could be easily compared.
+                            splits for all datasets in MedMNIST, therefore algorithms could be easily compared.
                         </li>
                         <li style="text-align:justify; text-justify:inter-ideograph">
-                            <b><i>Lightweight</i></b>: The small size of 28×28 (2D) or 28×28×28 (3D) is friendly to
-                            evaluate machine learning algorithms.
+                            <b><i>User-Friendly</i></b>: The small size of 28×28 (2D) or 28×28×28 (3D) is lightweight
+                            and ideal for evaluating machine learning algorithms.
+                            <!-- We also offer a larger-size version:
+                            64x64 (2D), 128x128 (2D), 224x224 (2D), and 64x64x64 (3D). Serving as a complement to the
+                            28-size MedMNIST, this could be a standardized resource for developing medical foundation
+                            models. All these datasets are accessible via the same API. -->
                         </li>
                         <li style="text-align:justify; text-justify:inter-ideograph">
                             <b><i>Educational</i></b>: As an interdisciplinary research area, biomedical image analysis
@@ -158,7 +163,7 @@
                     <h2>Materials</h2>
 
                     <p style="text-align:justify; text-justify:inter-ideograph">
-                        The MedMNIST v2 dataset consists of <b>12 pre-processed 2D datasets</b> and <b>6 pre-processed
+                        The MedMNIST dataset consists of <b>12 pre-processed 2D datasets</b> and <b>6 pre-processed
                             3D datasets</b> from selected sources covering primary data modalities (e.g., X-Ray, OCT,
                         Ultrasound, CT, Electron Microscope), diverse classification tasks (binary/multi-class, ordinal
                         regression and multi-label) and data scales (from 100 to 100,000). For simplicity, we call the
@@ -185,7 +190,7 @@
 
                         <table class="table table-hover" style="text-align: center">
                             <caption style="text-align: center">
-                                An Overview of MedMNIST2D in MedMNIST v2.
+                                An Overview of MedMNIST2D in MedMNIST.
                                 <b>Click&#10138;</b> each row to view more details.
                             </caption>
                             <thead class="thead-light">
@@ -266,7 +271,7 @@
 
                         <table class="table table-hover" style="text-align: center">
                             <caption style="text-align: center">
-                                An Overview of MedMNIST3D in MedMNIST v2.
+                                An Overview of MedMNIST3D in MedMNIST.
                                 <b>Click&#10138;</b> each row to view more details.
                             </caption>
                             <thead class="thead-light">
