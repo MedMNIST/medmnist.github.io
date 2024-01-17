@@ -1,21 +1,963 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta id="refreshMeta" http-equiv="refresh" content="">
-    <title>Page Redirection</title>
+    <title>MedMNIST</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description"
+        content="MedMNIST: 18x Standardized Datasets for 2D and 3D Biomedical Image Classification">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="vender/bootstrap.min.css" rel="stylesheet">
+    <script src="vender/vue.min.js"></script>
+    <link href="assets/v2/favicon.ico" rel="icon" type="image/x-icon" />
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js"></script>
 </head>
 
 <body>
-    <!-- Setup the page to redirect in the following <a></a> tag. -->
-    If you are not redirected automatically, click the <a id="redirectedTo" href="/">link</a> manually.
+
+    <div class="container" id="app">
+
+        <!-- about -->
+        <div>
+            <div class="row">
+                <div class="col">
+
+                    <br> <br>
+
+                    <!-- <h1 align="center">{{about.title}}</h1> -->
+
+                    <h1 align="center"><b>MedMNIST</b></h1>
+                    <h2 align="center">18x Standardized Datasets for 2D and 3D Biomedical Image Classification</h2>
+                    <!-- <h2 align="center">with Multiple Size Options: 28 (MNIST-Like), 64, 128, and 224</h2> -->
+
+                    <br> <br>
+
+                    <h4 align="center">
+                        <ul class="list-inline">
+                            <li class="list-inline-item" v-for="(author,i) in about.authors">
+                                <span v-if="author.href"><a v-bind:href="author.href"
+                                        target="_blank">{{author.name}}</a></span><span
+                                    v-else>{{author.name}}</span><span v-if="i<(about.authors.length-1)">,</span>
+                            </li>
+                        </ul>
+                    </h4>
+
+
+                    <h5 align="center" v-for="(affiliation,i) in about.affiliations">
+                        <sup v-if="about.affiliations.length>1">{{i+1}}</sup> {{affiliation}}
+                    </h5>
+
+                    <br> <br>
+
+
+
+                    <h2 align="center">
+                        <ul class="list-inline">
+                            <li class="list-inline-item" v-for="(material,i) in about.materials">
+                                <b>{{material.name}}</b>
+                                [<a v-bind:href="material.href" target="_blank">{{material.where}}</a>]
+                            </li>
+                        </ul>
+                    </h2>
+
+
+
+                    <br>
+
+                    <p align="center">
+                        <img v-bind:src="about.teaser" width="100%">
+                    </p>
+
+
+                </div>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <!-- abstract -->
+        <div>
+            <div class="row">
+                <div class="col">
+                    <h2>Abstract</h2>
+                    <p style="text-align:justify; text-justify:inter-ideograph">
+                        We introduce MedMNIST, a large-scale MNIST-like collection of standardized biomedical images,
+                        including 12 datasets for 2D and 6 datasets for 3D.
+                        All images are pre-processed into 28x28 (2D) or 28x28x28 (3D) with the corresponding
+                        classification labels, so that no background knowledge is required for users.
+                        Covering primary data modalities in biomedical images,
+                        MedMNIST is designed to perform classification on lightweight 2D and 3D images
+                        with various data scales (from 100 to 100,000) and diverse tasks (binary/multi-class,
+                        ordinal regression and multi-label). The resulting dataset,
+                        consisting of approximately 708K 2D images and 10K 3D images in total,
+                        could support numerous research and educational purposes in biomedical image analysis,
+                        computer vision and machine learning. We benchmark several baseline methods on MedMNIST,
+                        including 2D / 3D neural networks and open-source / commercial AutoML tools.
+                    </p>
+                    <!-- <p style="text-align:justify; text-justify:inter-ideograph">
+                        <b>Update:</b> We are thrilled to release MedMNIST with larger sizes: 64x64, 128x128, and
+                        224x224 for 2D,
+                        and 64x64x64 for 3D. As a complement to the previous 28-size MedMNIST, the large-size version
+                        could
+                        serve as a standardized benchmark for medical foundation models.
+                        Check the details <a href="#TODO">here</a>.
+                    </p> -->
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- hightlight -->
+        <div>
+            <div class="row">
+                <div class="col">
+                    <h2>Key Features</h2>
+                    <ul>
+                        <li style="text-align:justify; text-justify:inter-ideograph">
+                            <b><i>Diverse</i></b>: It covers diverse data modalities, dataset scales (from 100 to
+                            100,000), and tasks (binary/multi-class, multi-label, and ordinal regression). It is as
+                            diverse as the VDD and MSD to fairly evaluate the generalizable performance of machine
+                            learning algorithms in different settings, but both 2D and 3D biomedical images are
+                            provided.
+                        </li>
+                        <li style="text-align:justify; text-justify:inter-ideograph">
+                            <b><i>Standardized</i></b>: Each sub-dataset is pre-processed into the same format, which
+                            requires no background knowledge for users. As an MNIST-like dataset collection to perform
+                            classification tasks on small images, it primarily focuses on the machine learning part
+                            rather than the end-to-end system. Furthermore, we provide standard train-validation-test
+                            splits for all datasets in MedMNIST, therefore algorithms could be easily compared.
+                        </li>
+                        <li style="text-align:justify; text-justify:inter-ideograph">
+                            <b><i>User-Friendly</i></b>: The small size of 28×28 (2D) or 28×28×28 (3D) is lightweight
+                            and ideal for evaluating machine learning algorithms.
+                            <!-- We also offer a larger-size version:
+                            64x64 (2D), 128x128 (2D), 224x224 (2D), and 64x64x64 (3D). Serving as a complement to the
+                            28-size MedMNIST, this could be a standardized resource for developing medical foundation
+                            models. All these datasets are accessible via the same API. -->
+                        </li>
+                        <li style="text-align:justify; text-justify:inter-ideograph">
+                            <b><i>Educational</i></b>: As an interdisciplinary research area, biomedical image analysis
+                            is difficult to hand on for researchers from other communities, as it requires background
+                            knowledge from computer vision, machine learning, biomedical imaging, and clinical science.
+                            Our data with the Creative Commons (CC) License is easy to use for educational purposes.
+                        </li>
+
+                    </ul>
+                    <p style="text-align:justify; text-justify:inter-ideograph">
+                        Please note that this dataset is <b>NOT</b> intended for clinical use.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- materials -->
+        <div>
+            <div class="row">
+                <div class="col-12">
+                    <h2>Materials</h2>
+
+                    <p style="text-align:justify; text-justify:inter-ideograph">
+                        The MedMNIST dataset consists of <b>12 pre-processed 2D datasets</b> and <b>6 pre-processed
+                            3D datasets</b> from selected sources covering primary data modalities (e.g., X-Ray, OCT,
+                        Ultrasound, CT, Electron Microscope), diverse classification tasks (binary/multi-class, ordinal
+                        regression and multi-label) and data scales (from 100 to 100,000). For simplicity, we call the
+                        collection of all 2D datasets as <b>MedMNIST2D</b>, and that of 3D as <b>MedMNIST3D</b>.
+                    </p>
+
+                    <p style="text-align:justify; text-justify:inter-ideograph">
+                        We recommend our official <a href="https://github.com/MedMNIST/MedMNIST">code</a> to download
+                        and use the MedMNIST dataset: <b><i>pip install medmnist</i></b>
+                    </p>
+                </div>
+
+
+            </div>
+
+            <hr>
+
+            <h3>MedMNIST2D</h3>
+
+            <div class="row">
+                <div class="col-12">
+
+                    <div class="table-responsive justify-content-center">
+
+                        <table class="table table-hover" style="text-align: center">
+                            <caption style="text-align: center">
+                                An Overview of MedMNIST2D in MedMNIST.
+                                <b>Click&#10138;</b> each row to view more details.
+                            </caption>
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>MedMNIST2D</th>
+                                    <th>Data Modality</th>
+                                    <th>Tasks (# Classes/Labels)</th>
+                                    <th># Samples</th>
+                                    <th># Training / Validation / Test</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="subset in medmnist2d" v-on:click="selected2d = subset">
+                                    <td>{{subset.dataset}}</td>
+                                    <td>{{subset.modality}}</td>
+                                    <td>{{subset.task}}</td>
+                                    <td>{{subset.samples}}</td>
+                                    <td>{{subset.splits}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+            <br>
+
+            <h4>Facts of <b>{{selected2d.dataset}}</b></h4>
+
+            <div class="row">
+
+                <div class="d-none d-md-block col-md-4 col-lg-3">
+                    <img v-bind:src="'assets/v2/imgs/'+selected2d.dataset+'.jpg'" class="img-fluid">
+                </div>
+
+                <div class="col">
+
+                    <h5>
+                        <b>Data Modality:</b> {{selected2d.modality}}
+                    </h5>
+
+                    <h5>
+                        <b>Task:</b> {{selected2d.task}}
+                    </h5>
+
+                    <h5>
+                        <b>Number of Samples:</b> {{selected2d.samples}} ({{selected2d.splits}})
+                    </h5>
+
+
+                    <h5><b>Source Data:</b></h5>
+                    <p style="text-align:justify; text-justify:inter-ideograph"
+                        v-for="citation in selected2d.citations">
+                        {{citation}}
+                    </p>
+
+                    <small>
+                        <i style="text-align:justify; text-justify:inter-ideograph">
+                            <b>License:</b>
+                            <a v-bind:href="selected2d.licenseURL" target="_blank"> {{selected2d.license}}</a>
+                        </i>
+                    </small>
+
+                </div>
+
+
+            </div>
+
+            <hr>
+
+            <h3>MedMNIST3D</h3>
+
+            <div class="row">
+                <div class="col-12">
+
+                    <div class="table-responsive justify-content-center">
+
+                        <table class="table table-hover" style="text-align: center">
+                            <caption style="text-align: center">
+                                An Overview of MedMNIST3D in MedMNIST.
+                                <b>Click&#10138;</b> each row to view more details.
+                            </caption>
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>MedMNIST3D</th>
+                                    <th>Data Modality</th>
+                                    <th>Tasks (# Classes/Labels)</th>
+                                    <th># Samples</th>
+                                    <th># Training / Validation / Test</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="subset in medmnist3d" v-on:click="selected3d = subset">
+                                    <td>{{subset.dataset}}</td>
+                                    <td>{{subset.modality}}</td>
+                                    <td>{{subset.task}}</td>
+                                    <td>{{subset.samples}}</td>
+                                    <td>{{subset.splits}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+            <br>
+
+            <h4>Facts of <b>{{selected3d.dataset}}</b></h4>
+
+            <div class="row">
+
+                <div class="d-none d-md-block col-md-4 col-lg-3">
+                    <img v-bind:src="'assets/v2/imgs/'+selected3d.dataset+'.'+selectedFormat3d" class="img-fluid">
+
+                    <span class="badge" v-for="format3d in ['jpg', 'gif']"
+                        v-bind:class="{'badge-dark': selectedFormat3d===format3d}"
+                        v-on:click="selectedFormat3d = format3d">{{format3d}}</span>
+                </div>
+
+                <div class="col">
+
+                    <h5>
+                        <b>Data Modality:</b> {{selected3d.modality}}
+                    </h5>
+
+                    <h5>
+                        <b>Task:</b> {{selected3d.task}}
+                    </h5>
+
+                    <h5>
+                        <b>Number of Samples:</b> {{selected3d.samples}} ({{selected3d.splits}})
+                    </h5>
+
+
+                    <h5><b>Source Data:</b></h5>
+                    <p style="text-align:justify; text-justify:inter-ideograph"
+                        v-for="citation in selected3d.citations">
+                        {{citation}}
+                    </p>
+
+                    <small>
+                        <i style="text-align:justify; text-justify:inter-ideograph">
+                            <b>License:</b>
+                            <a v-bind:href="selected3d.licenseURL" target="_blank"> {{selected3d.license}}</a>
+                        </i>
+                    </small>
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- results -->
+        <div>
+            <div class="row">
+                <div class="col">
+                    <h2>Benchmarking</h2>
+
+                    <div class="table-responsive justify-content-center">
+                        <table class="table table-sm table-hover" style="text-align: center">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th rowspan="2">Methods</th>
+                                    <th colspan="2">PathMNIST</th>
+                                    <th colspan="2">ChestMNIST</th>
+                                    <th colspan="2">DermaMNIST</th>
+                                    <th colspan="2">OCTMNIST</th>
+                                    <th colspan="2">PneumoniaMNIST</th>
+                                    <th colspan="2">RetinaMNIST</th>
+                                </tr>
+                                <tr>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ResNet-18 (28)</td>
+                                    <td>0.983</td>
+                                    <td>0.907</td>
+                                    <td>0.768</td>
+                                    <td>0.947</td>
+                                    <td>0.917</td>
+                                    <td>0.735</td>
+                                    <td>0.943</td>
+                                    <td>0.743</td>
+                                    <td>0.944</td>
+                                    <td>0.854</td>
+                                    <td>0.717</td>
+                                    <td>0.524</td>
+                                </tr>
+                                <tr>
+                                    <td>ResNet-18 (224)</td>
+                                    <td>0.989</td>
+                                    <td>0.909</td>
+                                    <td>0.773</td>
+                                    <td>0.947</td>
+                                    <td><b>0.920</b></td>
+                                    <td>0.754</td>
+                                    <td>0.958</td>
+                                    <td>0.763</td>
+                                    <td>0.956</td>
+                                    <td>0.864</td>
+                                    <td>0.710</td>
+                                    <td>0.493</td>
+                                </tr>
+                                <tr>
+                                    <td>ResNet-50 (28)</td>
+                                    <td><b>0.990</b></td>
+                                    <td><b>0.911</b></td>
+                                    <td>0.769</td>
+                                    <td>0.947</td>
+                                    <td>0.913</td>
+                                    <td>0.735</td>
+                                    <td>0.952</td>
+                                    <td>0.762</td>
+                                    <td>0.948</td>
+                                    <td>0.854</td>
+                                    <td>0.726</td>
+                                    <td>0.528</td>
+                                </tr>
+                                <tr>
+                                    <td>ResNet-50 (224)</td>
+                                    <td>0.989</td>
+                                    <td>0.892</td>
+                                    <td>0.773</td>
+                                    <td><b>0.948</b></td>
+                                    <td>0.912</td>
+                                    <td>0.731</td>
+                                    <td>0.958</td>
+                                    <td><b>0.776</b></td>
+                                    <td>0.962</td>
+                                    <td>0.884</td>
+                                    <td>0.716</td>
+                                    <td>0.511</td>
+                                </tr>
+                                <tr>
+                                    <td>auto-sklearn</td>
+                                    <td>0.934</td>
+                                    <td>0.716</td>
+                                    <td>0.649</td>
+                                    <td>0.779</td>
+                                    <td>0.902</td>
+                                    <td>0.719</td>
+                                    <td>0.887</td>
+                                    <td>0.601</td>
+                                    <td>0.942</td>
+                                    <td>0.855</td>
+                                    <td>0.690</td>
+                                    <td>0.515</td>
+                                </tr>
+                                <tr>
+                                    <td>AutoKeras</td>
+                                    <td>0.959</td>
+                                    <td>0.834</td>
+                                    <td>0.742</td>
+                                    <td>0.937</td>
+                                    <td>0.915</td>
+                                    <td>0.749</td>
+                                    <td>0.955</td>
+                                    <td>0.763</td>
+                                    <td>0.947</td>
+                                    <td>0.878</td>
+                                    <td>0.719</td>
+                                    <td>0.503</td>
+                                </tr>
+                                <tr>
+                                    <td>Google AutoML Vision</td>
+                                    <td>0.944</td>
+                                    <td>0.728</td>
+                                    <td><b>0.778</b></td>
+                                    <td><b>0.948</b></td>
+                                    <td>0.914</td>
+                                    <td><b>0.768</b></td>
+                                    <td><b>0.963</b></td>
+                                    <td>0.771</td>
+                                    <td><b>0.991</b></td>
+                                    <td><b>0.946</b></td>
+                                    <td><b>0.750</b></td>
+                                    <td><b>0.531</b></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="table-responsive justify-content-center">
+                        <table class="table table-sm table-hover" style="text-align: center">
+                            <caption style="text-align: center">Benchmarking Performance on MedMNIST2D.</caption>
+                            <thead class="thead-light">
+                                <tr>
+                                    <th rowspan="2">Methods</th>
+                                    <th colspan="2">BreastMNIST</th>
+                                    <th colspan="2">BloodMNIST</th>
+                                    <th colspan="2">TissueMNIST</th>
+                                    <th colspan="2">OrganAMNIST</th>
+                                    <th colspan="2">OrganCMNIST</th>
+                                    <th colspan="2">OrganSMNIST</th>
+                                </tr>
+                                <tr>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ResNet-18 (28)</td>
+                                    <td>0.901</td>
+                                    <td><b>0.863</b></td>
+                                    <td><b>0.998</b></td>
+                                    <td>0.958</td>
+                                    <td>0.930</td>
+                                    <td>0.676</td>
+                                    <td>0.997</td>
+                                    <td>0.935</td>
+                                    <td>0.992</td>
+                                    <td>0.900</td>
+                                    <td>0.972</td>
+                                    <td>0.782</td>
+                                </tr>
+                                <tr>
+                                    <td>ResNet-18 (224)</td>
+                                    <td>0.891</td>
+                                    <td>0.833</td>
+                                    <td><b>0.998</b></td>
+                                    <td>0.963</td>
+                                    <td>0.933</td>
+                                    <td>0.681</td>
+                                    <td><b>0.998</b></td>
+                                    <td><b>0.951</b></td>
+                                    <td><b>0.994</b></td>
+                                    <td><b>0.920</b></td>
+                                    <td>0.974</td>
+                                    <td>0.778</td>
+                                </tr>
+                                <tr>
+                                    <td>ResNet-50 (28)</td>
+                                    <td>0.857</td>
+                                    <td>0.812</td>
+                                    <td>0.997</td>
+                                    <td>0.956</td>
+                                    <td>0.931</td>
+                                    <td>0.680</td>
+                                    <td>0.997</td>
+                                    <td>0.935</td>
+                                    <td>0.992</td>
+                                    <td>0.905</td>
+                                    <td>0.972</td>
+                                    <td>0.770</td>
+                                </tr>
+                                <tr>
+                                    <td>ResNet-50 (224)</td>
+                                    <td>0.866</td>
+                                    <td>0.842</td>
+                                    <td>0.997</td>
+                                    <td>0.950</td>
+                                    <td>0.932</td>
+                                    <td>0.680</td>
+                                    <td><b>0.998</b></td>
+                                    <td>0.947</td>
+                                    <td>0.993</td>
+                                    <td>0.911</td>
+                                    <td><b>0.975</b></td>
+                                    <td>0.785</td>
+                                </tr>
+                                <tr>
+                                    <td>auto-sklearn</td>
+                                    <td>0.836</td>
+                                    <td>0.803</td>
+                                    <td>0.984</td>
+                                    <td>0.878</td>
+                                    <td>0.828</td>
+                                    <td>0.532</td>
+                                    <td>0.963</td>
+                                    <td>0.762</td>
+                                    <td>0.976</td>
+                                    <td>0.829</td>
+                                    <td>0.945</td>
+                                    <td>0.672</td>
+                                </tr>
+                                <tr>
+                                    <td>AutoKeras</td>
+                                    <td>0.871</td>
+                                    <td>0.831</td>
+                                    <td><b>0.998</b></td>
+                                    <td>0.961</td>
+                                    <td><b>0.941</b></td>
+                                    <td><b>0.703</b></td>
+                                    <td>0.994</td>
+                                    <td>0.905</td>
+                                    <td>0.990</td>
+                                    <td>0.879</td>
+                                    <td>0.974</td>
+                                    <td><b>0.813</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Google AutoML Vision</td>
+                                    <td><b>0.919</b></td>
+                                    <td>0.861</td>
+                                    <td><b>0.998</b></td>
+                                    <td><b>0.966</b></td>
+                                    <td>0.924</td>
+                                    <td>0.673</td>
+                                    <td>0.990</td>
+                                    <td>0.886</td>
+                                    <td>0.988</td>
+                                    <td>0.877</td>
+                                    <td>0.964</td>
+                                    <td>0.749</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <div class="table-responsive justify-content-center">
+                        <table class="table table-sm table-hover" style="text-align: center">
+                            <caption style="text-align: center">Benchmarking Performance on MedMNIST3D.</caption>
+                            <thead class="thead-light">
+                                <tr>
+                                    <th rowspan="2">Methods</th>
+                                    <th colspan="2">OrganMNIST3D</th>
+                                    <th colspan="2">NoduleMNIST3D</th>
+                                    <th colspan="2">FractureMNIST3D</th>
+                                    <th colspan="2">AdrenalMNIST3D</th>
+                                    <th colspan="2">VesselMNIST3D</th>
+                                    <th colspan="2">SynapseMNIST3D</th>
+                                </tr>
+                                <tr>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                    <td>AUC</td>
+                                    <td>ACC</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ResNet-18 + 2.5D</td>
+                                    <td>0.977</td>
+                                    <td>0.788</td>
+                                    <td>0.838</td>
+                                    <td>0.835</td>
+                                    <td>0.587</td>
+                                    <td>0.451</td>
+                                    <td>0.718</td>
+                                    <td>0.772</td>
+                                    <td>0.748</td>
+                                    <td>0.846</td>
+                                    <td>0.634</td>
+                                    <td>0.696</td>
+                                </tr>
+                                <tr>
+                                    <td>ResNet-18 + 3D</td>
+                                    <td><b>0.996</b></td>
+                                    <td><b>0.907</b></td>
+                                    <td>0.863</td>
+                                    <td>0.844</td>
+                                    <td>0.712</td>
+                                    <td>0.508</td>
+                                    <td>0.827</td>
+                                    <td>0.721</td>
+                                    <td>0.874</td>
+                                    <td>0.877</td>
+                                    <td>0.820</td>
+                                    <td>0.745</td>
+                                </tr>
+                                <tr>
+                                    <td>ResNet-18 + ACS</td>
+                                    <td>0.994</td>
+                                    <td>0.900</td>
+                                    <td>0.873</td>
+                                    <td>0.847</td>
+                                    <td>0.714</td>
+                                    <td>0.497</td>
+                                    <td><b>0.839</b></td>
+                                    <td>0.754</td>
+                                    <td><b>0.930</b></td>
+                                    <td><b>0.928</b></td>
+                                    <td>0.705</td>
+                                    <td>0.722</td>
+                                </tr>
+                                <tr>
+                                    <td>ResNet-50 + 2.5D</td>
+                                    <td>0.974</td>
+                                    <td>0.769</td>
+                                    <td>0.835</td>
+                                    <td>0.848</td>
+                                    <td>0.552</td>
+                                    <td>0.397</td>
+                                    <td>0.732</td>
+                                    <td>0.763</td>
+                                    <td>0.751</td>
+                                    <td>0.877</td>
+                                    <td>0.669</td>
+                                    <td>0.735</td>
+                                </tr>
+                                <tr>
+                                    <td>ResNet-50 + 3D</td>
+                                    <td>0.994</td>
+                                    <td>0.883</td>
+                                    <td>0.875</td>
+                                    <td>0.847</td>
+                                    <td>0.725</td>
+                                    <td>0.494</td>
+                                    <td>0.828</td>
+                                    <td>0.745</td>
+                                    <td>0.907</td>
+                                    <td>0.918</td>
+                                    <td><b>0.851</b></td>
+                                    <td><b>0.795</b></td>
+                                </tr>
+                                <tr>
+                                    <td>ResNet-50 + ACS</td>
+                                    <td>0.994</td>
+                                    <td>0.889</td>
+                                    <td>0.886</td>
+                                    <td>0.841</td>
+                                    <td><b>0.750</b></td>
+                                    <td><b>0.517</b></td>
+                                    <td>0.828</td>
+                                    <td>0.758</td>
+                                    <td>0.912</td>
+                                    <td>0.858</td>
+                                    <td>0.719</td>
+                                    <td>0.709</td>
+                                </tr>
+                                <tr>
+                                    <td>auto-sklearn</td>
+                                    <td>0.977</td>
+                                    <td>0.814</td>
+                                    <td><b>0.914</b></td>
+                                    <td><b>0.874</b></td>
+                                    <td>0.628</td>
+                                    <td>0.453</td>
+                                    <td>0.828</td>
+                                    <td><b>0.802</b></td>
+                                    <td>0.910</td>
+                                    <td>0.915</td>
+                                    <td>0.631</td>
+                                    <td>0.730</td>
+                                </tr>
+                                <tr>
+                                    <td>AutoKeras</td>
+                                    <td>0.979</td>
+                                    <td>0.804</td>
+                                    <td>0.844</td>
+                                    <td>0.834</td>
+                                    <td>0.642</td>
+                                    <td>0.458</td>
+                                    <td>0.804</td>
+                                    <td>0.705</td>
+                                    <td>0.773</td>
+                                    <td>0.894</td>
+                                    <td>0.538</td>
+                                    <td>0.724</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- citation -->
+        <div>
+            <div class="row">
+                <div class="col">
+                    <h2>Citation</h2>
+                    <p style="text-align:justify; text-justify:inter-ideograph">
+                        If you find this project useful, please cite:
+                    </p>
+
+                    <blockquote class="blockquote">
+                        <pre>  Jiancheng Yang, Rui Shi, Donglai Wei, Zequan Liu, Lin Zhao, Bilian Ke, Hanspeter Pfister, Bingbing Ni. Yang, Jiancheng, et al. "MedMNIST v2-A large-scale lightweight benchmark for 2D and 3D biomedical image classification." Scientific Data, 2023.
+                            
+  Jiancheng Yang, Rui Shi, Bingbing Ni. "MedMNIST Classification Decathlon: A Lightweight AutoML Benchmark for Medical Image Analysis". IEEE 18th International Symposium on Biomedical Imaging (ISBI), 2021.</pre>
+                    </blockquote>
+
+                    <p>or using bibtex:</p>
+                    <blockquote class="blockquote">
+                        <pre>@article{medmnistv2,
+    title={MedMNIST v2-A large-scale lightweight benchmark for 2D and 3D biomedical image classification},
+    author={Yang, Jiancheng and Shi, Rui and Wei, Donglai and Liu, Zequan and Zhao, Lin and Ke, Bilian and Pfister, Hanspeter and Ni, Bingbing},
+    journal={Scientific Data},
+    volume={10},
+    number={1},
+    pages={41},
+    year={2023},
+    publisher={Nature Publishing Group UK London}
+}
+
+@inproceedings{medmnistv1,
+    title={MedMNIST Classification Decathlon: A Lightweight AutoML Benchmark for Medical Image Analysis},
+    author={Yang, Jiancheng and Shi, Rui and Ni, Bingbing},
+    booktitle={IEEE 18th International Symposium on Biomedical Imaging (ISBI)},
+    pages={191--195},
+    year={2021}
+}</pre>
+                    </blockquote>
+                    <p style="text-align:justify; text-justify:inter-ideograph">
+                        Please also cite the corresponding paper(s) of source data if you use any subset of MedMNIST
+                        (check this <a href="./assets/v2/medmnist.bib" target="_blank">bibtex</a>).
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <!-- usage -->
+        <div>
+            <div class="row" id="code">
+                <!-- <div class="col d-none d-md-block"> -->
+                <div class="col-12">
+                    <h2>Python Usage</h2>
+                    <code class="bash">
+                        <span id="typed-text-1"></span>
+                        <br>
+                        <span id="typed-text-2"></span>
+                    </code>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- License -->
+        <div>
+            <div class="row">
+                <div class="col">
+                    <h2>License</h2>
+                    <p style="text-align:justify; text-justify:inter-ideograph">
+                        The MedMNIST dataset is licensed under <i>Creative Commons Attribution 4.0 International</i> (<a
+                            href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>), except
+                        DermaMNIST under Creative Commons Attribution-NonCommercial 4.0 International (<a
+                            href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>).
+                    </p>
+                    <p style="text-align:justify; text-justify:inter-ideograph">
+                        The code is under <a href="https://github.com/MedMNIST/MedMNIST/blob/main/LICENSE"
+                            target="_blank">Apache-2.0 License</a>.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <!-- footer -->
+        <div>
+            <p align="center">
+                Copyright © {{site.year}}
+                <span class="d-block d-sm-none"></span>
+                MedMNIST Team
+            </p>
+            <p align="center">
+                <small>
+                    This
+                    <a v-bind:href="site.siteURL" target="_blank">website</a>
+                    created by
+                    <a v-bind:href="site.creatorURL" target="_blank">{{site.creator}}</a>
+                    is hosted on
+                    <a v-bind:href="site.repoURL" target="_blank">GitHub</a>.
+
+                    Updated on {{site.lastUpdated}}.
+                </small>
+            </p>
+        </div>
+
+
+    </div>
+
+
+    <script src="assets/v2/data.js"></script>
+    <script src="assets/v2/app.js"></script>
+
+    <script>
+        const shuffle = function (array) {
+            return array.sort(() => Math.random() - 0.5);
+        }
+
+        const generateStrings = (datasets) => {
+            datasets = shuffle(datasets);
+            console.log(datasets);
+            const strings = [];
+            for (const dataset of datasets) {
+                strings.push(`>>> from medmnist import ${dataset}<br>>>> dataset = ${dataset}(split="train", download=True)`);
+                strings.push(`>>> from medmnist import ${dataset}<br>>>> dataset = ${dataset}(split="val", download=True)`);
+                strings.push(`>>> from medmnist import ${dataset}<br>>>> dataset = ${dataset}(split="test", download=True)`);
+            }
+            return strings;
+        };
+        new Typed('#typed-text-1', {
+            strings: ['% pip install medmnist<br>% python'],
+            typeSpeed: 50,
+            showCursor: true,
+            onComplete:
+                function (self) {
+                    self.cursor.remove();
+                    new Typed('#typed-text-2', {
+                        strings: generateStrings([
+                            'PathMNIST',
+                            "ChestMNIST",
+                            "DermaMNIST",
+                            "OCTMNIST",
+                            "PneumoniaMNIST",
+                            "RetinaMNIST",
+                            "BreastMNIST",
+                            "BloodMNIST",
+                            "TissueMNIST",
+                            "OrganAMNIST",
+                            "OrganCMNIST",
+                            "OrganSMNIST",
+                            "OrganMNIST3D",
+                            "NoduleMNIST3D",
+                            "AdrenalMNIST3D",
+                            "FractureMNIST3D",
+                            "VesselMNIST3D",
+                            "SynapseMNIST3D"
+                        ]),
+                        typeSpeed: 20,
+                        showCursor: true,
+                        loop: true,
+                        loopCount: Infinity,
+                    });
+                },
+        });
+    </script>
+
 </body>
-
-<script>
-    const waitSecond = 0.;
-
-    const redirectedTo = document.getElementById('redirectedTo');
-    const refreshMeta = document.getElementById('refreshMeta');
-    refreshMeta.content = waitSecond + ";url=" + redirectedTo.href;
-</script>
 
 </html>

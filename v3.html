@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+
+<head>
+    <meta id="refreshMeta" http-equiv="refresh" content="">
+    <title>Page Redirection</title>
+</head>
+
+<body>
+    <!-- Setup the page to redirect in the following <a></a> tag. -->
+    If you are not redirected automatically, click the <a id="redirectedTo" href="/">link</a> manually.
+</body>
+
+<script>
+    const waitSecond = 0.;
+
+    const redirectedTo = document.getElementById('redirectedTo');
+    const refreshMeta = document.getElementById('refreshMeta');
+    refreshMeta.content = waitSecond + ";url=" + redirectedTo.href;
+</script>
+
+</html>
