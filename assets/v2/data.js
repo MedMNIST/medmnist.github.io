@@ -50,31 +50,31 @@ const about = {
     ],
     materials: [
         {
-            name: "Code",
-            where: "GitHub",
-            href: "https://github.com/MedMNIST/MedMNIST"
-        },
-        {
-            name: "Dataset",
+            name: "Data",
             where: "Zenodo",
             // href: "https://doi.org/10.5281/zenodo.10519195",
             href: "https://doi.org/10.5281/zenodo.10519652",
+        },
+        {
+            name: "Code",
+            where: "GitHub",
+            href: "https://github.com/MedMNIST/MedMNIST"
         },
         {
             name: "Preprint",
             where: "arXiv",
             href: "https://arxiv.org/abs/2110.14795"
         },
-        {
-            name: "Publication v2",
-            where: "Nature Scientific Data'23",
-            href: "https://doi.org/10.1038/s41597-022-01721-8"
-        },
-        {
-            name: "Publication v1",
-            where: "ISBI'21",
-            href: "https://doi.org/10.1109/ISBI48211.2021.9434062"
-        }
+        // {
+        //     name: "Publication v2",
+        //     where: "Nature Scientific Data'23",
+        //     href: "https://doi.org/10.1038/s41597-022-01721-8"
+        // },
+        // {
+        //     name: "Publication v1",
+        //     where: "ISBI'21",
+        //     href: "https://doi.org/10.1109/ISBI48211.2021.9434062"
+        // }
     ],
     teaser: "assets/v2/imgs/overview.jpg"
 };
