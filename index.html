@@ -98,10 +98,12 @@
                         including 2D / 3D neural networks and open-source / commercial AutoML tools.
                     </p>
                     <p style="text-align:justify; text-justify:inter-ideograph">
-                        <b>Update:</b> We are thrilled to release MedMNIST+ with larger sizes: 64x64, 128x128, and
-                        224x224 for 2D, and 64x64x64 for 3D. As a complement to the previous 28-size MedMNIST, the
-                        large-size version could serve as a standardized benchmark for medical foundation models.
-                        Check the details about MedMNIST+ <a href="https://github.com/MedMNIST/MedMNIST/blob/main/on_medmnist_plus.md">here</a>.
+                        <b>Update:</b>
+                        We are thrilled to release <a
+                            href="https://github.com/MedMNIST/MedMNIST/blob/main/on_medmnist_plus.md">MedMNIST+</a> with
+                        larger sizes: 64x64, 128x128, and 224x224 for 2D, and 64x64x64 for 3D. As a complement to the
+                        previous 28-size MedMNIST, the large-size version could serve as a standardized benchmark for
+                        medical foundation models. 
                     </p>
                 </div>
             </div>
@@ -908,15 +910,48 @@
             return array.sort(() => Math.random() - 0.5);
         }
 
-        const generateStrings = (datasets) => {
-            datasets = shuffle(datasets);
+        const generateStrings = () => {
+            const datasets = [
+                'PathMNIST',
+                "ChestMNIST",
+                "DermaMNIST",
+                "OCTMNIST",
+                "PneumoniaMNIST",
+                "RetinaMNIST",
+                "BreastMNIST",
+                "BloodMNIST",
+                "TissueMNIST",
+                "OrganAMNIST",
+                "OrganCMNIST",
+                "OrganSMNIST",
+                "OrganMNIST3D",
+                "NoduleMNIST3D",
+                "AdrenalMNIST3D",
+                "FractureMNIST3D",
+                "VesselMNIST3D",
+                "SynapseMNIST3D"
+            ];
             console.log(datasets);
-            const strings = [];
+            var strings = [];
+            // var sizeText = "";
             for (const dataset of datasets) {
-                strings.push(`>>> from medmnist import ${dataset}<br>>>> dataset = ${dataset}(split="train", download=True)`);
-                strings.push(`>>> from medmnist import ${dataset}<br>>>> dataset = ${dataset}(split="val", download=True)`);
-                strings.push(`>>> from medmnist import ${dataset}<br>>>> dataset = ${dataset}(split="test", download=True)`);
+                if (dataset.includes('3D')) {
+                    // sizeText = ["", ", size=64"][Math.floor(Math.random() * 2)];
+                    for (const sizeText of ["", ", size=64"]) {
+                        strings.push(`>>> from medmnist import ${dataset}<br>>>> dataset = ${dataset}(split="train", download=True${sizeText})`);
+                        strings.push(`>>> from medmnist import ${dataset}<br>>>> dataset = ${dataset}(split="val", download=True${sizeText})`);
+                        strings.push(`>>> from medmnist import ${dataset}<br>>>> dataset = ${dataset}(split="test", download=True${sizeText})`);
+                    }
+                }
+                else {
+                    for (const sizeText of ["", ", size=64", ", size=128", ", size=224"]) {
+                        strings.push(`>>> from medmnist import ${dataset}<br>>>> dataset = ${dataset}(split="train", download=True${sizeText})`);
+                        strings.push(`>>> from medmnist import ${dataset}<br>>>> dataset = ${dataset}(split="val", download=True${sizeText})`);
+                        strings.push(`>>> from medmnist import ${dataset}<br>>>> dataset = ${dataset}(split="test", download=True${sizeText})`);
+                    }
+                }
             }
+            strings = shuffle(strings);
             return strings;
         };
         new Typed('#typed-text-1', {
@@ -927,26 +962,7 @@
                 function (self) {
                     self.cursor.remove();
                     new Typed('#typed-text-2', {
-                        strings: generateStrings([
-                            'PathMNIST',
-                            "ChestMNIST",
-                            "DermaMNIST",
-                            "OCTMNIST",
-                            "PneumoniaMNIST",
-                            "RetinaMNIST",
-                            "BreastMNIST",
-                            "BloodMNIST",
-                            "TissueMNIST",
-                            "OrganAMNIST",
-                            "OrganCMNIST",
-                            "OrganSMNIST",
-                            "OrganMNIST3D",
-                            "NoduleMNIST3D",
-                            "AdrenalMNIST3D",
-                            "FractureMNIST3D",
-                            "VesselMNIST3D",
-                            "SynapseMNIST3D"
-                        ]),
+                        strings: generateStrings(),
                         typeSpeed: 20,
                         showCursor: true,
                         loop: true,

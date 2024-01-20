@@ -67,7 +67,7 @@ const about = {
         },
         {
             name: "Publication v2",
-            where: "Scientific Data'23",
+            where: "Nature Scientific Data'23",
             href: "https://doi.org/10.1038/s41597-022-01721-8"
         },
         {
